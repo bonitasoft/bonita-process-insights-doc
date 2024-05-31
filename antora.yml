@@ -1,0 +1,12 @@
+name: bpi
+title: Bonita Process Insights
+version: latest
+asciidoc:
+  attributes:
+    # page attributes
+    page-pagination: true # display links to previous/next pages at the bottom of the page
+    page-editable: true
+    page-next-release: true
+    page-hide-search-bar: true
+nav:
+  - modules/ROOT/taxonomy.adoc

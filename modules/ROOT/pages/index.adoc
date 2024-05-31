@@ -1,0 +1,7 @@
+= Bonita Process Insights
+:description: An explanation of what Bonita Process Insights is and how it can help you.
+
+
+== What is Bonita Process Insights?
+
+IMPORTANT: this is a work in progress!!

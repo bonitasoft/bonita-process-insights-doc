@@ -27,8 +27,57 @@ The `arch_process_instance` table contains information related to process instan
 ** **Default Handling**: HASH
 ** **Details**: These fields can include specific Groovy code, which may expose sensitive data. Therefore, they are hashed by default to maintain data security.
 
-IMPORTANT: this is a work in progress!!
+==== arch_flownode_instance
+
+The `arch_flownode_instance` table contains information related to the execution of flow node instances. While it primarily includes technical data necessary for BPI, certain fields within this table may contain sensitive information and require special handling:
+
+* **displayname**: 
+** **Default Handling**: REPLACE("")
+** **Details**: This field contains the displayed name of the flow node instance, which may include sensitive data. By default, this field will be cleared.
+
+* **description**: 
+** **Default Handling**: KEEP
+** **Details**: This field contains the description of the flow node itself. Although it might contain sensitive data (e.g., company names, departments, addresses), this is usually not the case.
+
+* **hitbys, loopdatainputref, loopdataoutputref, datainputitemref, dataoutputitemref**: 
+** **Default Handling**: KEEP
+** **Details**: These fields are technical data of the flow node instance. Those data are not sensitive and can be used for statistic purpose. 
+
+==== user_
+
+The `user_` table contains information related to the users. A specific field require some handling:
+
+* **username**: 
+** **Default Handling**: HASH
+** **Details**: This field contains the name of an user, which include sensitive data. By default, this field will be hashed.
+
+==== actor
+
+The `actor` table contains information related to the actors of a process. It defines who can perform a task or start a process. While it primarily includes technical data necessary for BPI, certain fields within this table may contain sensitive information and require special handling:
+
+* **name, displayname, description**: 
+** **Default Handling**: KEEP
+** **Details**: Normally, an actor shoudn't have sensitive data because it represent a department, team, job of a company. Those data are not sensitive and can be used for statistic purpose. 
+
+
+==== arch_process_comment
+
+The `arch_process_comment` table contains information about users who have interact with specific flow nodes, along with other sensitive details. Those comments can include name of the users.
+
+* **content**: 
+** **Default Handling**: REMOVE_LINE
+** **Details**: Without a specific configuration, the anonymization by default will never export the content of this table because of the sensible data in it. You need to have your own anonymization configuration to handle those data.
+
+==== arch_contract_data
+The `arch_contract_data` table contains information about contracts, including inputs and constraints. Due to the flexibility in specifying various types of inputs, this table often contains sensitive data.
+
+* **name, val**: 
+** **Default Handling**: REMOVE_LINE
+** **Details**: Without a specific configuration, the anonymization by default will never export the content of this table because of the sensible data in it. You need to have your own anonymization configuration to handle those data.
+
 
 == Advanced anonymization
 
 === Generate a sample configuration for data anonymization
+
+=== Handling contract data anonymization

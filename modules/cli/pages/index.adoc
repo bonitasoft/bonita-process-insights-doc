@@ -1,0 +1,4 @@
+= Command Line tool for Export
+:description: Explain how to use and configure the CLI to export data from a Bonita database
+
+IMPORTANT: this is a work in progress!!

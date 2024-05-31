@@ -1,2 +1,2 @@
-* Bonita Process Insights
+* Data Management (PI-APP)
 ** xref:index.adoc[Introduction]

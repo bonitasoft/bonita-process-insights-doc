@@ -1,0 +1,7 @@
+= Dashboards
+:description: An explanation of what the Bonita Process Insights Dashboards are.
+
+
+== Introduction to BPI Dashboards?
+
+IMPORTANT: this is a work in progress!!

@@ -21,5 +21,3 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           component-name: bpi
           fail-on-warning: true
-        # TODO remove when https://github.com/bonitasoft/bonita-documentation-site/pull/721 has been merged
-          doc-site-branch: chore/add_bpi_for_preview

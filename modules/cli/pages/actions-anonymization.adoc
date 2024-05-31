@@ -1,0 +1,4 @@
+= Actions types for anonymization
+:description: Description of all the possible actions type for anonymization
+
+IMPORTANT: this is a work in progress!!

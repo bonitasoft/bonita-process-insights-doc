@@ -1,7 +1,7 @@
 = Actions types for anonymization
 :description: Description of all the possible actions type for anonymization
 
-== Hash 
+== Hash - Hash a value
 
 Replace the values by a Hash:  this allows to remove readable values but keeps the cardinality.  Safe hash function should be used ( SHA-256 for instance ) and the result must remain constant between multiple run ( ie : the same value must have the same result over time ) 
 
@@ -21,7 +21,7 @@ Sample configuration :
             value: SHA-256 
 ----
 
-== Replace
+== Replace - Replace a value
 
 Replace the value with a specified value ( which can be empty ) 
 
@@ -43,7 +43,7 @@ Sample configuration :
             value: 'hidden'
 ----
 
-== ReplaceWithOther
+== Replace_with_other - Replace a value by another column value of the same table
 
 Replace a value by another value of the same table and line : ie replace the display_name with the name
 
@@ -64,7 +64,7 @@ Sample configuration :
           - action: REPLACE_WITH_OTHER
             value: name
 ----
-== regexpReplace
+== Regex_replace - Replace a value matching a regex expression
 
 Replace the value if the regexp match and use the matching group to create the new value.
 
@@ -112,7 +112,7 @@ Sample configuration :
             value: hidden comment
 ----
 
-== Keep
+== Keep - Keep a value
 
 Keep the value 
 
@@ -127,7 +127,7 @@ Sample configuration :
           - action: KEEP
 ----
 
-== Remove_line
+== Remove_line - Remove a full line
 
 Remove the whole data line ( only applicable on data contract and comment ) 
 

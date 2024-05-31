@@ -1,1 +1,2 @@
 * Dashboards
+** xref:index.adoc[Introduction]

@@ -1,2 +1,2 @@
-* Command line for Exporting from Bonita
+* xref:index.adoc[Command line for Exporting from Bonita]
 ** xref:configuration-for-anonymization.adoc[Configure the anonymization]

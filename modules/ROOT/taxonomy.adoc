@@ -1,1 +1,2 @@
 * Bonita Process Insights
+** xref:index.adoc[Introduction]

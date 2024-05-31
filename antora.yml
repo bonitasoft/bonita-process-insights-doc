@@ -9,4 +9,5 @@ asciidoc:
     page-next-release: true
     page-hide-search-bar: true
 nav:
+  - modules/cli/taxonomy.adoc
   - modules/ROOT/taxonomy.adoc

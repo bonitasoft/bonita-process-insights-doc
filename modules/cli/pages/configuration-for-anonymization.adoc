@@ -80,4 +80,13 @@ The `arch_contract_data` table contains information about contracts, including i
 
 === Generate a sample configuration for data anonymization
 
+Before performing a full export, you can configure the anonymization of specific fields. To assist with this, a command is available in the tool to generate a sample configuration file based on a default setup, allowing you to choose which columns and tables to anonymize.
+
+The command `gen_default_anon_conf` has been added to the export tool to streamline this process. If needed, you can use the `--output` argument to specify the location for the generated file.
+
+[NOTE]
+====
+The generated file itself is only a sample of the configuration file, the anonymization section. You'll need to copy and paste that part into your own configuration file used by your export tool.
+====
+
 === Handling contract data anonymization

@@ -21,23 +21,23 @@ The `arch_process_instance` table contains information related to process instan
 
 * **description**: 
 ** **Default Handling**: KEEP
-** **Details**: This field contains the description of the process instance itself. Although it might contain sensitive data (e.g., company names, departments, addresses), this is usually not the case.
+** **Details**: This field contains the description of the process instance itself that is added by developers during the development phase. Although it might contain sensitive data (e.g., company names, departments, addresses), this is usually not the case.
 
 * **stringindex1, stringindex2, stringindex3, stringindex4, stringindex5**: 
 ** **Default Handling**: HASH
-** **Details**: These fields can include specific Groovy code, which may expose sensitive data. Therefore, they are hashed by default to maintain data security.
+** **Details**: These fields holds the search indexes that are defined at development phase that can be used to search cases using the APIs and case list. These fields are usually filled with specific Groovy code, which may expose sensitive data. Therefore, they are hashed by default to maintain data security.
 
 ==== arch_flownode_instance
 
-The `arch_flownode_instance` table contains information related to the execution of flow node instances. While it primarily includes technical data necessary for BPI, certain fields within this table may contain sensitive information and require special handling:
+The `arch_flownode_instance` table contains information related to the execution of flow node instances (human and automatic tasks, gateways and events). While it primarily includes technical data necessary for BPI, certain fields within this table may contain sensitive information and require special handling:
 
 * **displayname**: 
 ** **Default Handling**: REPLACE("")
-** **Details**: This field contains the displayed name of the flow node instance, which may include sensitive data. By default, this field will be cleared.
+** **Details**: This field contains the displayed name of the flow node instance that is added by developers during the development phase, which may include sensitive data. By default, this field will be cleared.
 
 * **description**: 
 ** **Default Handling**: KEEP
-** **Details**: This field contains the description of the flow node itself. Although it might contain sensitive data (e.g., company names, departments, addresses), this is usually not the case.
+** **Details**: This field contains the description of the flow node itself that is added by developers during the development phase. Although it might contain sensitive data (e.g., company names, departments, addresses), this is usually not the case.
 
 * **hitbys, loopdatainputref, loopdataoutputref, datainputitemref, dataoutputitemref**: 
 ** **Default Handling**: KEEP
@@ -49,7 +49,7 @@ The `user_` table contains information related to the users. A specific field re
 
 * **username**: 
 ** **Default Handling**: HASH
-** **Details**: This field contains the name of an user, which include sensitive data. By default, this field will be hashed.
+** **Details**: This field contains the username of an user, which indeed include sensitive data. By default, this field will be hashed.
 
 ==== actor
 

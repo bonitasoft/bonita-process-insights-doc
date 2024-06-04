@@ -137,11 +137,9 @@ Sample configuration :
 [source,yaml]
 ----
 arch_contract_data:
-  # column name
   val:
     actions:
     - action: remove_line
       where:
-        # where column name : matching regex
         name: "input\.list\.*"
 ----

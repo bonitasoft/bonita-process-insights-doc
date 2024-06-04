@@ -89,4 +89,28 @@ The command `gen_default_anon_conf` has been added to the export tool to streaml
 The generated file itself is only a sample of the configuration file, the anonymization section. You'll need to copy and paste that part into your own configuration file used by your export tool.
 ====
 
+The generated configuration will also contains all your data contracts key to allow you a convenient way to anonymize them. 
+
 === Handling contract data anonymization
+Process data can include contract data used within your processes, which may contain sensitive information. 
+
+[WARNING]
+====
+By default, if you do not specify how to handle this contract data, the anonymization process will exclude it from export.
+====
+
+During the export, contract data will be transformed into CSV lines in the `arch_contract_data.csv` file within the export zip file. Each line represents a key-value pair of contract data. The concept of the key is crucial as it allows you to specify the exact type of anonymization you want for each contract data field.
+
+To specify which inputs of your contract data to anonymize, use the `where` clause in the configuration.
+
+For example, suppose you have a contract named `loanRequestInput` with a field `loanAmount`. If you want to keep this value because it is not sensitive and could be useful in BPI dashboards, you need to override the default removal setting. Specify a `KEEP` action using the `where` clause to retain `loanAmount`. Here is an example configuration extract:
+
+[source,yaml]
+----
+arch_contract_data:
+  val:
+    actions:
+    - action: KEEP
+      where:
+        name: loanRequestInput\.loanAmount
+----

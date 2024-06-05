@@ -3,13 +3,13 @@
 
 == Hash - Hash a value
 
-Replace the values by a Hash:  this allows to remove readable values but keeps the cardinality.  Safe hash function should be used ( SHA-256 for instance ) and the result must remain constant between multiple run ( ie : the same value must have the same result over time ) 
+Replace the values by a Hash, this allows to remove readable values but keeps the cardinality. Safe hash function should be used ( SHA-256 for instance )
 
-Usage : Value containing sensitive information but on which you want to have accurate statistic and the ability to see the impact on the process execution. 
+*Usage* : Value containing sensitive information but on which you want to have accurate statistic and the ability to see the impact on the process execution. 
 
-Parameters : 
+*Parameters* : 
 
-value : the algorithm to use for hashing. Optional, default to SHA-512 
+*value* : the algorithm to use for hashing. Optional, default to SHA-512 
 
 Sample configuration : 
 [source,yaml]
@@ -25,13 +25,11 @@ Sample configuration :
 
 Replace the value with a specified value ( which can be empty ) 
 
-Usage : Value containing sensitive information you want to hide
+*Usage* : Value containing sensitive information you want to hide.
 
-Set empty value on a string index 
+*Parameters* :
 
-Parameters 
-
-val : The value used to replace the current field. Default value empty
+*value* : The value used to replace the current field. Default value empty
 
 Sample configuration :
 [source,yaml]
@@ -45,15 +43,13 @@ Sample configuration :
 
 == Replace_with_other - Replace a value by another column value of the same table
 
-Replace a value by another value of the same table and line : ie replace the display_name with the name
+Replace a value by another value of the same table and line.
 
-Usage : Value containing sensitive information you want to replace with another non sensitive meaningful value 
+*Usage* : Value containing sensitive information you want to replace with another non sensitive meaningful value in the same table.
 
-replace the display name or description of the flownode with the name or description
+*Parameters* :
 
-Parameters 
-
-value : column name of the column to be use to replace the value.  No Default , mandatory
+*value* : column name of the column to be use to replace the value.  No Default , mandatory
 
 Sample configuration :
 [source,yaml]
@@ -70,31 +66,18 @@ Replace the value if the regexp match and use the matching group to create the n
 
 if multiple part of the value match , they are all replace. ( Behavior similar to  Matcher.replaceAll ) 
 
-Multiple Regexp and replacement pattern can be defined 
-
-Oder of application is the one in the definition 
-
-Stop once one of the regexp has matched the value and the replacement pattern is applied
-
 If none of the regexp match , allow to configure a fallback which can be any of the other action. 
 
-Usage : Value containing some sensitive information with other non sensitive one and you want to keep the non sensitive information. 
+*Usage* : Value containing some sensitive information with other non sensitive one and you want to keep the non sensitive information. 
 
-replace the email or name of the user by it’s initials
+*Parameters* : 
 
-remove contract id from a comment 
+*pattern* : The regular expression to match  Default , mandatory
 
-Parameters : 
+*value* : The replacement pattern ( including captured group ) to used to change the value. No Default , mandatory
 
-list of params
+*fallback* : action to apply if no regexp match.
 
-Params 
-
-regexp : The regular expression to match  Default , mandatory
-
-replacementPattern : The pattern ( including captured group ) to used to change the value. No Default , mandatory
-
-fallback : action to apply if no regexp match. Default value replace 
 Sample configuration : 
 [source,yaml]
 ----
@@ -114,9 +97,9 @@ Sample configuration :
 
 == Keep - Keep a value
 
-Keep the value 
+Keep the value, no anonymization done. 
 
-Parameters : none
+*Parameters*: none
 
 Sample configuration :
 [source,yaml]
@@ -129,9 +112,10 @@ Sample configuration :
 
 == Remove_line - Remove a full line
 
-Remove the whole data line ( only applicable on data contract and comment ) 
+Remove the whole data line ( only possible on data contract and comment ) 
 
-Parameters : optional where clause expressed as a regex to match with the value for the configured column. 
+*Parameters* : 
+optional where clause expressed as a regex to match with the value for the configured column. 
 
 Sample configuration :
 [source,yaml]

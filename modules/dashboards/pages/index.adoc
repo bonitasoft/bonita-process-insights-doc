@@ -5,3 +5,5 @@
 == Introduction to BPI Dashboards?
 
 IMPORTANT: this is a work in progress!!
+
+This is an extra change to validate that changes are detected and displayed in a PR comment, even when the contribution comes from a forked repository!

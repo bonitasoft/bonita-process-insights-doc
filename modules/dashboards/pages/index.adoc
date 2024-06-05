@@ -1,5 +1,5 @@
 = Dashboards
-:description: An explanation of what the Bonita Process Insights Dashboards are.
+:description_should_generate_a_validation_error: An explanation of what the Bonita Process Insights Dashboards are.
 
 
 == Introduction to BPI Dashboards?

@@ -1,4 +1,53 @@
 = Command Line tool for Export
 :description: Explain how to use and configure the CLI to export data from a Bonita database
 
-IMPORTANT: this is a work in progress!!
+== Overview
+The Command Line tool is used to provision data extracted from Bonita instances into a Bonita Process Insights environment for deeper process analysis.
+
+The command line tool is delivered in a package, containing a basic documentation about commands and a sample configuration file.
+
+== Export data
+=== Configuration
+Before exporting, you need to configure the connection to the Bonita Instance from which you want to export the data.
+
+The sample configuration should look like this :
+[source,yaml]
+----
+bonita:
+  database:
+    host: localhost
+    port: 5432
+    name: bonita
+    username: bonita
+    password: bpm
+    jdbc-url: myJdbcUrl
+----
+
+Export tool can support two type of databases Postgresql and Oracle. The jdbc url must be adapted according to the type of database you will use. 
+
+* **Oracle** :    
+[source,yaml]
+----
+jdbc-url: jdbc:oracle:thin:@${bonita.database.host}:${bonita.database.port}/${bonita.database.name}?oracle.net.disableOob=true`jdbc-url`
+----
+* **PostgresSql** : 
+[source,yaml]
+----
+jdbc-url: jdbc:postgresql://${bonita.database.host}:${bonita.database.port}/${bonita.database.name}
+----
+
+[NOTE]
+====
+After you finish to configure your file, place it next to the executable jar directory or in a subdirectory named config.
+====
+
+=== Exporting data and Importing to BPI
+To export your data, use the following command line :
+`pi-cli bonita export`
+
+You can add some arguments like `-output` to specify the exact path of the exported zip file. 
+
+=== Anonymize exported data
+By default, your exported data will be anonymized. It's possible to deactivate the anonymization or adding your own configuration. 
+
+For more details, see xref:configuration-for-anonymization.adoc[Configure the anonymization]

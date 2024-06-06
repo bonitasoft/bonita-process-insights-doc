@@ -1,6 +1,11 @@
 = Actions types for anonymization
 :description: Description of all the possible actions type for anonymization
 
+== Overview
+Action types are mechanisms used to anonymize specific values in the exported data. A value can have one or multiple actions associated with it. If no actions are explicitly specified in the configuration for a particular value, it will default to a predefined action as described in the page xref:configuration-for-anonymization.adoc[Configure the anonymization].
+
+Additionally, you can define a fallback mechanism in case the primary action does not work or does not find a match (for example, using the `regex_replace` action).
+
 == Hash - Hash a value
 
 Replace the values by a Hash, this allows to remove readable values but keeps the cardinality. Safe hash function should be used ( SHA-256 for instance )

@@ -125,10 +125,21 @@ optional where clause expressed as a regex to match with the value for the confi
 Sample configuration :
 [source,yaml]
 ----
-arch_contract_data:
-  val:
-    actions:
-    - action: remove_line
-      where:
-        name: "input\.list\.*"
+      arch_contract_data:
+        val:
+          actions:
+          - action: REMOVE_LINE
+            where:
+            - column: name
+              regex: PurchasedLicenseInput\.bypassSysDate
+            - column: name
+              regex: PurchasedLicenseInput\.caseCounterStartDate
+            - column: name
+              regex: PurchasedLicenseInput\.description
+            - column: name
+              regex: PurchasedLicenseInput\.endDate
+            - column: name
+              regex: PurchasedLicenseInput\.name
+            - column: name
+              regex: PurchasedLicenseInput\.numberCases
 ----

@@ -6,7 +6,7 @@ Using the command `export` of the export tool will activate automatically the an
 
 [NOTE]
 ====
-In case you don't want to activate the anonymization during your export, you can add the argument `-a=false` at the end of the `export` command.
+In case you don't want to activate the anonymization during your export, you can add the argument `-da=true` at the end of the `export` command.
 ====
 
 Exported data will be anonymized by default to avoid sensitive data leak or with a specified configuration of your own. 

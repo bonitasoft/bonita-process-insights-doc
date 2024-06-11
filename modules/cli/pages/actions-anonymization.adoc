@@ -1,5 +1,6 @@
 = Actions types for anonymization
 :description: Description of all the possible actions type for anonymization
+:javase-javadoc-base-url: https://docs.oracle.com/en/java/javase/21/docs/api
 
 == Overview
 Action types are mechanisms used to anonymize specific values in the exported data. A value can have one or multiple actions associated with it. If no actions are explicitly specified in the configuration for a particular value, it will default to a predefined action as described in the page xref:configuration-for-anonymization.adoc[Configure the anonymization].
@@ -71,13 +72,13 @@ Replace the value if the regexp match and use the matching group to create the n
 
 [TIP]
 ====
-The pattern is a regular expression using the https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum[Java Pattern syntax] that is used to match the value. The value is the replacement pattern (including captured group) that is used to change the value.
+The pattern is a regular expression using the {javase-javadoc-base-url}/java.base/java/util/regex/Pattern.html#sum[Java Pattern syntax] that is used to match the value. The value is the replacement pattern (including captured group) that is used to change the value.
 
-* If several parts of the value match, they are all replaced. The behavior is similar to that of the Java https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Matcher.html#replaceAll(java.lang.String)[Matcher.replaceAll] method.
+* If several parts of the value match, they are all replaced. The behavior is similar to that of the Java {javase-javadoc-base-url}/java.base/java/util/regex/Matcher.html#replaceAll(java.lang.String)[Matcher.replaceAll] method.
 * If none of the regexps match, a fallback can be configured, which can be any other action.
 ====
 
-*Usage* : Value containing some sensitive information with other non sensitive one and you want to keep the non sensitive information.
+*Usage* : Value containing some sensitive information with other non-sensitive one, and you want to keep the non-sensitive information.
 
 *Parameters* :
 

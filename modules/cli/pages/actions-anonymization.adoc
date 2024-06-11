@@ -27,7 +27,7 @@ Sample configuration :
             value: SHA-256
 ----
 
-== REPLACE
+=== REPLACE
 
 Replace the value with a specified value ( which can be empty )
 
@@ -47,7 +47,7 @@ Sample configuration :
             value: 'hidden'
 ----
 
-== REPLACE_WITH_OTHER
+=== REPLACE_WITH_OTHER
 
 Replace a value by the value of another column of the same table and line.
 
@@ -66,7 +66,7 @@ Sample configuration :
           - action: REPLACE_WITH_OTHER
             value: name
 ----
-== REGEX_REPLACE
+=== REGEX_REPLACE
 
 Replace the value if the regexp match and use the matching group to create the new value.
 
@@ -94,18 +94,18 @@ Sample configuration :
     arch_process_comment:
       content:
         actions:
-          - action: regex_replace
+          - action: REGEX_REPLACE
             pattern: contract (\d+) is ready for user (\S+)\.(\S+)
             value: contract XXXX is ready for $2
-          - action: regex_replace
+          - action: REGEX_REPLACE
             pattern: The task Allocate repair agent on car (\S+) (is now assigned to .*)
             value: The task Allocate repair agent on car *** $2
         fallback:
-          - action: replace
+          - action: REPLACE
             value: hidden comment
 ----
 
-== KEEP
+=== KEEP
 
 Keep the value, no anonymization done.
 
@@ -120,7 +120,7 @@ Sample configuration :
           - action: KEEP
 ----
 
-== REMOVE_LINE
+=== REMOVE_LINE
 
 Remove the whole data line ( only possible on data contract and comment )
 

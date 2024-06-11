@@ -6,7 +6,7 @@ Action types are mechanisms used to anonymize specific values in the exported da
 
 Additionally, you can define a fallback mechanism in case the primary action does not work or does not find a match (for example, using the `regex_replace` action).
 
-== Hash - Hash a value
+== HASH
 
 Replace the values by a Hash, this allows to remove readable values but keeps the cardinality. Safe hash function should be used ( SHA-256 for instance )
 
@@ -26,7 +26,7 @@ Sample configuration :
             value: SHA-256 
 ----
 
-== Replace - Replace a value
+== REPLACE
 
 Replace the value with a specified value ( which can be empty ) 
 
@@ -46,9 +46,9 @@ Sample configuration :
             value: 'hidden'
 ----
 
-== Replace_with_other - Replace a value by another column value of the same table
+== REPLACE_WITH_OTHER
 
-Replace a value by another value of the same table and line.
+Replace a value by the value of another column of the same table and line.
 
 *Usage* : Value containing sensitive information you want to replace with another non sensitive meaningful value in the same table.
 
@@ -65,7 +65,7 @@ Sample configuration :
           - action: REPLACE_WITH_OTHER
             value: name
 ----
-== Regex_replace - Replace a value matching a regex expression
+== REGEX_REPLACE
 
 Replace the value if the regexp match and use the matching group to create the new value.
 
@@ -100,7 +100,7 @@ Sample configuration :
             value: hidden comment
 ----
 
-== Keep - Keep a value
+== KEEP
 
 Keep the value, no anonymization done. 
 
@@ -115,7 +115,7 @@ Sample configuration :
           - action: KEEP
 ----
 
-== Remove_line - Remove a full line
+== REMOVE_LINE
 
 Remove the whole data line ( only possible on data contract and comment ) 
 

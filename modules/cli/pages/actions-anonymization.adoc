@@ -3,11 +3,36 @@
 :javase-javadoc-base-url: https://docs.oracle.com/en/java/javase/21/docs/api
 
 == Overview
-Action types are mechanisms used to anonymize specific values in the exported data. A value can have one or multiple actions associated with it. If no actions are explicitly specified in the configuration for a particular value, it will default to a predefined action as described in the page xref:configuration-for-anonymization.adoc[Configure the anonymization].
+Action types are mechanisms used to anonymize specific values in the exported data. A value can have one or multiple actions associated with it.
+If no actions are explicitly specified in the configuration for a particular value, it will default to a predefined action as described in the page
+xref:configuration-for-anonymization.adoc[Configure the anonymization].
 
-Additionally, you can define a fallback mechanism in case the primary action does not work or does not find a match (for example, using the `regex_replace` action).
+Additionally, you can define a fallback mechanism in case the primary action does not work or does not find a match (for example, using the `REGEX_REPLACE` action).
 
-== HASH
+=== Order of execution of the actions
+
+The actions are executed in the order they are defined in the configuration file. The order of the actions is important because the output of one action is the input of the next action.
+The fallback action is executed only if none of the defined actions match.
+
+For example, if you first replace a value with a hash and then replace it with another value, the second action will be applied to the hashed value, not the original value.
+
+Sample configuration :
+[source,yaml]
+----
+  arch_flownode_instance:
+      displayname:
+        actions:
+          - action: REPLACE_WITH_OTHER
+            value: description
+          - action: REGEX_REPLACE
+            pattern: The task Allocate repair agent on car (\S+) (is now assigned to .*)
+            value: The task Allocate repair agent on car *** $2
+----
+
+
+== Available actions
+
+=== HASH
 
 Replace the values by a Hash, this allows to remove readable values but keeps the cardinality. Safe hash function should be used ( SHA-256 for instance )
 

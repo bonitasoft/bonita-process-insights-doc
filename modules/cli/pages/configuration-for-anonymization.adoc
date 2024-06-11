@@ -91,6 +91,39 @@ The generated file itself is only a sample of the configuration file, the anonym
 
 The generated configuration will also contains all your data contracts key to allow you a convenient way to anonymize them. 
 
+=== Content max size
+
+Some exported values may have a long size and will be truncated with a default size defined by the configuration entry `bpi.anonymizations.global.max_size`. 
+
+Default max size is *512*, but this can be override in the configuration.
+
+.Example
+[source, yaml]
+----
+bpi:
+  anonymizations:
+    global:
+      max_size: 512
+----
+
+[NOTE]
+====
+The max size will be applied to the values annonymized with actions : `KEEP`, `REPLACE`, `REGEX_REPLACE`.
+The result of other actions are left untouched because truncation may corrupt the value (Truncation of an hash make no sense).
+====
+
+Max size can also be overriden at `action` level. If no max size is specified on an action then the global action max size is applied.
+
+.Example
+[source, yaml]
+----
+  actor:
+    description:
+      actions:
+        - action: KEEP
+          max_size: 512
+----
+
 === Handling contract data anonymization
 Process data can include contract data used within your processes, which may contain sensitive information. 
 

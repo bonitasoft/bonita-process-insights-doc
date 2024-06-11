@@ -10,25 +10,25 @@ Additionally, you can define a fallback mechanism in case the primary action doe
 
 Replace the values by a Hash, this allows to remove readable values but keeps the cardinality. Safe hash function should be used ( SHA-256 for instance )
 
-*Usage* : Value containing sensitive information but on which you want to have accurate statistic and the ability to see the impact on the process execution. 
+*Usage* : Value containing sensitive information but on which you want to have accurate statistic and the ability to see the impact on the process execution.
 
-*Parameters* : 
+*Parameters* :
 
-*value* : the algorithm to use for hashing. Optional, default to SHA-512 
+*value* : the algorithm to use for hashing. Optional, default to SHA-512
 
-Sample configuration : 
+Sample configuration :
 [source,yaml]
 ----
     arch_process_instance:
       stringindex1:
         actions:
           - action: hash
-            value: SHA-256 
+            value: SHA-256
 ----
 
 == REPLACE
 
-Replace the value with a specified value ( which can be empty ) 
+Replace the value with a specified value ( which can be empty )
 
 *Usage* : Value containing sensitive information you want to hide.
 
@@ -69,13 +69,17 @@ Sample configuration :
 
 Replace the value if the regexp match and use the matching group to create the new value.
 
-if multiple part of the value match , they are all replace. ( Behavior similar to  Matcher.replaceAll ) 
+[TIP]
+====
+The pattern is a regular expression using the https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Pattern.html#sum[Java Pattern syntax] that is used to match the value. The value is the replacement pattern (including captured group) that is used to change the value.
 
-If none of the regexp match , allow to configure a fallback which can be any of the other action. 
+* If several parts of the value match, they are all replaced. The behavior is similar to that of the Java https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/regex/Matcher.html#replaceAll(java.lang.String)[Matcher.replaceAll] method.
+* If none of the regexps match, a fallback can be configured, which can be any other action.
+====
 
-*Usage* : Value containing some sensitive information with other non sensitive one and you want to keep the non sensitive information. 
+*Usage* : Value containing some sensitive information with other non sensitive one and you want to keep the non sensitive information.
 
-*Parameters* : 
+*Parameters* :
 
 *pattern* : The regular expression to match  Default , mandatory
 
@@ -83,7 +87,7 @@ If none of the regexp match , allow to configure a fallback which can be any of 
 
 *fallback* : action to apply if no regexp match.
 
-Sample configuration : 
+Sample configuration :
 [source,yaml]
 ----
     arch_process_comment:
@@ -102,7 +106,7 @@ Sample configuration :
 
 == KEEP
 
-Keep the value, no anonymization done. 
+Keep the value, no anonymization done.
 
 *Parameters*: none
 
@@ -117,10 +121,10 @@ Sample configuration :
 
 == REMOVE_LINE
 
-Remove the whole data line ( only possible on data contract and comment ) 
+Remove the whole data line ( only possible on data contract and comment )
 
-*Parameters* : 
-optional where clause expressed as a regex to match with the value for the configured column. 
+*Parameters* :
+optional where clause expressed as a regex to match with the value for the configured column.
 
 Sample configuration :
 [source,yaml]

@@ -14,9 +14,8 @@ Additionally, you can define a fallback mechanism in case the primary action doe
 The actions are executed in the order they are defined in the configuration file. The order of the actions is important because the output of one action is the input of the next action.
 The fallback action is executed only if none of the defined actions match.
 
-For example, if you first replace a value with a hash and then replace it with another value, the second action will be applied to the hashed value, not the original value.
+For example, if you have a `REGEX_REPLACE` action followed by a `REPLACE` action, the `REPLACE` action will be executed on the output of the `REGEX_REPLACE` action like in the following configuration:
 
-Sample configuration :
 [source,yaml]
 ----
   arch_flownode_instance:

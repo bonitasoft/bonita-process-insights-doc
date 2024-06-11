@@ -1,4 +1,116 @@
 = How-to configure the anonymization in the CLI
 :description: Learn how-to fine-tune the anonymization in the CLI
 
-IMPORTANT: this is a work in progress!!
+== Default anonymization
+Using the command `export` of the export tool will activate automatically the anonymization.
+
+[NOTE]
+====
+In case you don't want to activate the anonymization during your export, you can add the argument `-da=true` at the end of the `export` command.
+====
+
+Exported data will be anonymized by default to avoid sensitive data leak or with a specified configuration of your own. 
+
+=== List of tables anonymized by default
+
+This section lists the tables being exported and identified fields that may contain sensitive information. These fields are handled with specific rules to ensure data security.
+
+==== arch_process_instance
+
+The `arch_process_instance` table contains information related to process instances. While it primarily includes technical data necessary for BPI, certain fields within this table may contain sensitive information and require special handling:
+
+* **description**: 
+** **Default Handling**: KEEP
+** **Details**: This field contains the description of the process instance itself that is added by developers during the development phase. Although it might contain sensitive data (e.g., company names, departments, addresses), this is usually not the case.
+
+* **stringindex1, stringindex2, stringindex3, stringindex4, stringindex5**: 
+** **Default Handling**: HASH
+** **Details**: These fields holds the search indexes that are defined at development phase that can be used to search cases using the APIs and case list. These fields are usually filled with specific Groovy code, which may expose sensitive data. Therefore, they are hashed by default to maintain data security.
+
+==== arch_flownode_instance
+
+The `arch_flownode_instance` table contains information related to the execution of flow node instances (human and automatic tasks, gateways and events). While it primarily includes technical data necessary for BPI, certain fields within this table may contain sensitive information and require special handling:
+
+* **displayname**: 
+** **Default Handling**: REPLACE("")
+** **Details**: This field contains the displayed name of the flow node instance that is added by developers during the development phase, which may include sensitive data. By default, this field will be cleared.
+
+* **description**: 
+** **Default Handling**: KEEP
+** **Details**: This field contains the description of the flow node itself that is added by developers during the development phase. Although it might contain sensitive data (e.g., company names, departments, addresses), this is usually not the case.
+
+* **hitbys, loopdatainputref, loopdataoutputref, datainputitemref, dataoutputitemref**: 
+** **Default Handling**: KEEP
+** **Details**: These fields are technical data of the flow node instance. Those data are not sensitive and can be used for statistic purpose. 
+
+==== user_
+
+The `user_` table contains information related to the users. A specific field require some handling:
+
+* **username**: 
+** **Default Handling**: HASH
+** **Details**: This field contains the username of an user, which indeed include sensitive data. By default, this field will be hashed.
+
+==== actor
+
+The `actor` table contains information related to the actors of a process. It defines who can perform a task or start a process. While it primarily includes technical data necessary for BPI, certain fields within this table may contain sensitive information and require special handling:
+
+* **name, displayname, description**: 
+** **Default Handling**: KEEP
+** **Details**: Normally, an actor shoudn't have sensitive data because it represent a department, team, job of a company. Those data are not sensitive and can be used for statistic purpose. 
+
+
+==== arch_process_comment
+
+The `arch_process_comment` table contains information about users who have interact with specific flow nodes, along with other sensitive details. Those comments can include name of the users.
+
+* **content**: 
+** **Default Handling**: REMOVE_LINE
+** **Details**: Without a specific configuration, the anonymization by default will never export the content of this table because of the sensible data in it. You need to have your own anonymization configuration to handle those data.
+
+==== arch_contract_data
+The `arch_contract_data` table contains information about contracts, including inputs and constraints. Due to the flexibility in specifying various types of inputs, this table often contains sensitive data.
+
+* **name, val**: 
+** **Default Handling**: REMOVE_LINE
+** **Details**: Without a specific configuration, the anonymization by default will never export the content of this table because of the sensible data in it. You need to have your own anonymization configuration to handle those data.
+
+
+== Advanced anonymization
+
+=== Generate a sample configuration for data anonymization
+
+Before performing a full export, you can configure the anonymization of specific fields. To assist with this, a command is available in the tool to generate a sample configuration file based on a default setup, allowing you to choose which columns and tables to anonymize.
+
+The command `gen_default_anon_conf` has been added to the export tool to streamline this process. If needed, you can use the `--output` argument to specify the location for the generated file.
+
+[NOTE]
+====
+The generated file itself is only a sample of the configuration file, the anonymization section. You'll need to copy and paste that part into your own configuration file used by your export tool.
+====
+
+The generated configuration will also contains all your data contracts key to allow you a convenient way to anonymize them. 
+
+=== Handling contract data anonymization
+Process data can include contract data used within your processes, which may contain sensitive information. 
+
+[WARNING]
+====
+By default, if you do not specify how to handle this contract data, the anonymization process will exclude it from export.
+====
+
+During the export, contract data will be transformed into CSV lines in the `arch_contract_data.csv` file within the export zip file. Each line represents a key-value pair of contract data. The concept of the key is crucial as it allows you to specify the exact type of anonymization you want for each contract data field.
+
+To specify which inputs of your contract data to anonymize, use the `where` clause in the configuration.
+
+For example, suppose you have a contract named `loanRequestInput` with a field `loanAmount`. If you want to keep this value because it is not sensitive and could be useful in BPI dashboards, you need to override the default removal setting. Specify a `KEEP` action using the `where` clause to retain `loanAmount`. Here is an example configuration extract:
+
+[source,yaml]
+----
+arch_contract_data:
+  val:
+    actions:
+    - action: KEEP
+      where:
+        name: loanRequestInput\.loanAmount
+----

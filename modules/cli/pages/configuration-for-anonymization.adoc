@@ -35,6 +35,10 @@ The `arch_flownode_instance` table contains information related to the execution
 ** **Default Handling**: REPLACE("")
 ** **Details**: This field contains the displayed name of the flow node instance that is added by developers during the development phase, which may include sensitive data. By default, this field will be cleared.
 
+* **displaydescription**: 
+** **Default Handling**: REPLACE_WITH_OTHER(description)
+** **Details**: This field contains the displayed name of the description of the flow node itself that is added by developers during the development phase, which may include sensitive data. By default, this field is replaced by the description field content.
+
 * **description**: 
 ** **Default Handling**: KEEP
 ** **Details**: This field contains the description of the flow node itself that is added by developers during the development phase. Although it might contain sensitive data (e.g., company names, departments, addresses), this is usually not the case.

@@ -153,10 +153,9 @@ Sample configuration :
 
 === REMOVE_LINE
 
-Remove the whole data line ( only possible on data contract and comment )
+Remove the whole data row if the column as the value match regex given as pattern.
 
-*Parameters* :
-optional where clause expressed as a regex to match with the value for the configured column.
+In example below, we remove line of `arch_contract_data` where column `name` has value that match any regex `PurchasedLicenseInput\.bypassSysDate` or `PurchasedLicenseInput\.caseCounterStartDate`
 
 Sample configuration :
 [source,yaml]
@@ -170,12 +169,5 @@ Sample configuration :
               regex: PurchasedLicenseInput\.bypassSysDate
             - column: name
               regex: PurchasedLicenseInput\.caseCounterStartDate
-            - column: name
-              regex: PurchasedLicenseInput\.description
-            - column: name
-              regex: PurchasedLicenseInput\.endDate
-            - column: name
-              regex: PurchasedLicenseInput\.name
-            - column: name
-              regex: PurchasedLicenseInput\.numberCases
+
 ----

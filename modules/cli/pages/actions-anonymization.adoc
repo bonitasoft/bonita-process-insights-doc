@@ -1,5 +1,5 @@
 = Actions types for anonymization
-:description: Description of all the possible actions type for anonymization
+:description: Describe all possible actions for anonymization
 :javase-javadoc-base-url: https://docs.oracle.com/en/java/javase/21/docs/api
 
 == Overview
@@ -14,7 +14,8 @@ Additionally, you can define a fallback mechanism in case the primary action doe
 The actions are executed in the order they are defined in the configuration file. The order of the actions is important because the output of one action is the input of the next action.
 The fallback action is executed only if none of the defined actions match.
 
-"In the given example, two actions are applied. The first action, `REGEX_REPLACE`, preserves the domain of an email while replacing the remaining parts. The second action substitutes a username (such as walter.bates) with *****. If neither of these actions match, the fallback action `REMOVE_LINE` is executed, resulting in the removal of the entire line."
+In the given example, two actions are applied to the `content` column of the `arch_process_comment` table. The first action, `REGEX_REPLACE`, preserves the domain of an email while replacing the remaining parts. The second action substitutes a username (such as walter.bates) with +++*****+++. +
+If neither of these actions match, the fallback action `REMOVE_LINE` is executed, resulting in the removal of the entire line.
 
 [source,yaml]
 ----
@@ -32,10 +33,9 @@ The fallback action is executed only if none of the defined actions match.
         where:
           - column: content
             regex: '.*'
-
 ----
 
-In
+
 == Available actions
 
 === HASH

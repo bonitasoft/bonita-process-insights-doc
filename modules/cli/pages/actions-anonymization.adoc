@@ -14,21 +14,28 @@ Additionally, you can define a fallback mechanism in case the primary action doe
 The actions are executed in the order they are defined in the configuration file. The order of the actions is important because the output of one action is the input of the next action.
 The fallback action is executed only if none of the defined actions match.
 
-For example, if you have a `REGEX_REPLACE` action followed by a `REPLACE` action, the `REPLACE` action will be executed on the output of the `REGEX_REPLACE` action like in the following configuration:
+"In the given example, two actions are applied. The first action, `REGEX_REPLACE`, preserves the domain of an email while replacing the remaining parts. The second action substitutes a username (such as walter.bates) with *****. If neither of these actions match, the fallback action `REMOVE_LINE` is executed, resulting in the removal of the entire line."
 
 [source,yaml]
 ----
-  arch_flownode_instance:
-      displayname:
+  arch_process_comment:
+      content:
         actions:
-          - action: REPLACE_WITH_OTHER
-            value: description
           - action: REGEX_REPLACE
-            pattern: The task Allocate repair agent on car (\S+) (is now assigned to .*)
-            value: The task Allocate repair agent on car *** $2
+            pattern: [a-zA-Z0-9._-]+(@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)
+            value: '***$1'
+          - action: REGEX_REPLACE
+            pattern: ( [a-zA-Z0-9_\-]*\.[a-zA-Z0-9_\-]* )
+            value: '*****'
+      fallback:
+        action: REMOVE_LINE
+        where:
+          - column: content
+            regex: '.*'
+
 ----
 
-
+In
 == Available actions
 
 === HASH

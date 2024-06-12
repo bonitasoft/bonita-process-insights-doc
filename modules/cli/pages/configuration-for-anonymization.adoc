@@ -93,7 +93,75 @@ The command `gen_default_anon_conf` has been added to the export tool to streaml
 The generated file itself is only a sample of the configuration file, the anonymization section. You'll need to copy and paste that part into your own configuration file used by your export tool.
 ====
 
-The generated configuration will also contains all your data contracts key to allow you a convenient way to anonymize them. 
+The generated configuration will also contains all your data contracts key to allow you a convenient way to anonymize them.
+
+== Example of a generated configuration
+
+After executing the command `gen_default_anon_conf`, you will get a configuration file with the anonymization section filled with the default anonymization rules, like below .
+
+[source,yaml]
+bpi:
+  anonymizations:
+    global:
+      max_size: 512
+    rules:
+      arch_process_comment:
+        content:
+          fallback:
+            action: REMOVE_LINE
+            where:
+              - column: content
+                regex: '.*'
+      arch_contract_data:
+        val:
+          fallback:
+            action: REMOVE_LINE
+            where:
+              - column: name
+                regex: '.*'
+      arch_flownode_instance:
+        displayname:
+          actions:
+            - action: REPLACE
+              value: ''
+        displaydescription:
+          actions:
+            - action: REPLACE_WITH_OTHER
+              value: description
+        description:
+          actions:
+            - action: KEEP
+      user_:
+        username:
+          actions:
+            - action: HASH
+----
+
+=== Anonymization Rules
+
+Anonymization rules are defined in the configuration file under the `bpi.anonymizations.rules` section. This section contains a list of tables and fields that require anonymization, along with the actions to be performed on them. Each table contains a columns needs to be anonymized sort by their name except if a column contains a `REPLACE_WITH_OTHER` action defined. In this case, the anonymization of the column with this action will be executed at the end of the list to get the anonymized value of the target column.
+
+.Example
+[source, yaml]
+  anonymizations:
+    rules:
+     arch_flownode_instance:
+        displayname:
+          actions:
+            - action: REPLACE
+              value: ''
+        displaydescription:
+          actions:
+            - action: REPLACE_WITH_OTHER
+              value: description
+        description:
+          actions:
+            - action: REPLACE
+              value: 'New Value
+----
+
+In this example, the `arch_flownode_instance` table contains three columns that require anonymization: `displayname`, `displaydescription`, and `description`. First the `description` column will have its value replaced with the string `New Value`. Then the `displayname` column will have its value replaced with an empty string. Finally the `displaydescription` column will be replaced with the value of the `description` column.
+
 
 === Content max size
 

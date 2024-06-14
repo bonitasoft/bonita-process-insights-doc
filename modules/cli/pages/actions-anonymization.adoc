@@ -6,7 +6,7 @@
 
 Action types are mechanisms used to anonymize specific values in the exported data. A value can have one or multiple actions associated with it.
 If no actions are explicitly specified in the configuration for a particular value, it will default to a predefined action as described in the page
-<<Configure the anonymization>>.
+xref:configuration-for-anonymization.adoc[Configure the anonymization].
 
 Additionally, you can define a fallback mechanism in case the primary action does not work or does not find a match (for example, using the `REGEX_REPLACE` action).
 
@@ -137,7 +137,7 @@ arch_process_comment:
         value: hidden comment
 ----
 
-This action can be useful for comments and description or free text like data. It allow to mask such things as emails, username or login with an specific pattern and so on. Because you can define a list of regex action in a specific order, you can chain regex replacements and break anonymization in smaller sucessive replacements.
+This action can be useful for comments and description or free text like data. It allow to mask such things as emails, username or login with an specific pattern and so on. Because you can define a list of regex action in a specific order, you can chain regex replacements and break anonymization in smaller sucessive replacements.   
 
 === KEEP
 

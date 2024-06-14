@@ -96,7 +96,7 @@ The command `gen_default_anon_conf` has been added to the export tool to streaml
 The generated file itself is only a sample part of a configuration file, it only generate the anonymization section. You'll need to copy and paste that part into your own configuration file used by your export tool (the `application.yaml` file).
 ====
 
-The generated configuration will also list all discovered contract data "keys" to let you know what can be anonymized or not and how (see xref:_contract_data_anonymization[Contract data anonymization]).
+The generated configuration will also list all discovered contract data "keys" to let you know what can be anonymized or not and how (see <<Contract data anonymization>> ).
 
 == Example of a generated configuration
 

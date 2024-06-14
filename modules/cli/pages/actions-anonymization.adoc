@@ -38,8 +38,7 @@ arch_process_comment:
 
 === Where conditions
 
-It is possible to define `where` conditions on an action. The action will be performed if a where condition in the conditions list match. This can be translated as an `OR` operator between conditions: Apply this action if col x match regex 1  OR col x match regex 1 OR col y match regex 2 OR ... 
-
+It is possible to define `where` conditions on an action, The where conditions refers to column of the same table (no cross table conditions). The action will be performed if a where condition in the conditions list match. This can be translated as an `OR` operator between conditions: Apply this action if col x match regex 1  OR col x match regex 1 OR col y match regex 2 OR ... 
 
 == Available actions
 

@@ -3,6 +3,7 @@
 :javase-javadoc-base-url: https://docs.oracle.com/en/java/javase/21/docs/api
 
 == Overview
+
 Action types are mechanisms used to anonymize specific values in the exported data. A value can have one or multiple actions associated with it.
 If no actions are explicitly specified in the configuration for a particular value, it will default to a predefined action as described in the page
 xref:configuration-for-anonymization.adoc[Configure the anonymization].
@@ -19,22 +20,21 @@ If neither of these actions match, the fallback action `REMOVE_LINE` is executed
 
 [source,yaml]
 ----
-  arch_process_comment:
-      content:
-        actions:
-          - action: REGEX_REPLACE
-            pattern: [a-zA-Z0-9._-]+(@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)
-            value: '***$1'
-          - action: REGEX_REPLACE
-            pattern: ( [a-zA-Z0-9_\-]*\.[a-zA-Z0-9_\-]* )
-            value: '*****'
-      fallback:
-        action: REMOVE_LINE
-        where:
-          - column: content
-            regex: '.*'
+arch_process_comment:
+    content:
+      actions:
+        - action: REGEX_REPLACE
+          pattern: [a-zA-Z0-9._-]+(@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)
+          value: '***$1'
+        - action: REGEX_REPLACE
+          pattern: ( [a-zA-Z0-9_\-]*\.[a-zA-Z0-9_\-]* )
+          value: '*****'
+    fallback:
+      action: REMOVE_LINE
+      where:
+        - column: content
+          regex: '.*'
 ----
-
 
 == Available actions
 
@@ -51,11 +51,11 @@ Replace the values by a Hash, this allows to remove readable values but keeps th
 Sample configuration :
 [source,yaml]
 ----
-    arch_process_instance:
-      stringindex1:
-        actions:
-          - action: hash
-            value: SHA-256
+arch_process_instance:
+  stringindex1:
+    actions:
+      - action: hash
+        value: SHA-256
 ----
 
 === REPLACE
@@ -71,11 +71,11 @@ Replace the value with a specified value ( which can be empty )
 Sample configuration :
 [source,yaml]
 ----
-    arch_flownode_instance:
-      displayname:
-        actions:
-          - action: REPLACE
-            value: 'hidden'
+arch_flownode_instance:
+  displayname:
+    actions:
+      - action: REPLACE
+        value: 'hidden'
 ----
 
 === REPLACE_WITH_OTHER
@@ -91,12 +91,13 @@ Replace a value by the value of another column of the same table and line.
 Sample configuration :
 [source,yaml]
 ----
-    arch_flownode_instance:
-      displayname:
-        actions:
-          - action: REPLACE_WITH_OTHER
-            value: name
+arch_flownode_instance:
+  displayname:
+    actions:
+      - action: REPLACE_WITH_OTHER
+        value: name
 ----
+
 === REGEX_REPLACE
 
 Replace the value if the regexp match and use the matching group to create the new value.
@@ -122,19 +123,21 @@ The pattern is a regular expression using the {javase-javadoc-base-url}/java.bas
 Sample configuration :
 [source,yaml]
 ----
-    arch_process_comment:
-      content:
-        actions:
-          - action: REGEX_REPLACE
-            pattern: contract (\d+) is ready for user (\S+)\.(\S+)
-            value: contract XXXX is ready for $2
-          - action: REGEX_REPLACE
-            pattern: The task Allocate repair agent on car (\S+) (is now assigned to .*)
-            value: The task Allocate repair agent on car *** $2
-        fallback:
-          - action: REPLACE
-            value: hidden comment
+arch_process_comment:
+  content:
+    actions:
+      - action: REGEX_REPLACE
+        pattern: contract (\d+) is ready for user (\S+)\.(\S+)
+        value: contract XXXX is ready for $2
+      - action: REGEX_REPLACE
+        pattern: The task Allocate repair agent on car (\S+) (is now assigned to .*)
+        value: The task Allocate repair agent on car *** $2
+    fallback:
+      - action: REPLACE
+        value: hidden comment
 ----
+
+This action can be useful for comments and description or free text like data. It allow to mask such things as emails, username or login with an specific pattern and so on. Because you can define a list of regex action in a specific order, you can chain regex replacements and break anonymization in smaller sucessive replacements.
 
 === KEEP
 
@@ -145,10 +148,10 @@ Keep the value, no anonymization done.
 Sample configuration :
 [source,yaml]
 ----
-    arch_flownode_instance:
-      displayname:
-        actions:
-          - action: KEEP
+arch_flownode_instance:
+  displayname:
+    actions:
+      - action: KEEP
 ----
 
 === REMOVE_LINE
@@ -160,14 +163,14 @@ In example below, we remove line of `arch_contract_data` where column `name` has
 Sample configuration :
 [source,yaml]
 ----
-      arch_contract_data:
-        val:
-          actions:
-          - action: REMOVE_LINE
-            where:
-            - column: name
-              regex: PurchasedLicenseInput\.bypassSysDate
-            - column: name
-              regex: PurchasedLicenseInput\.caseCounterStartDate
+arch_contract_data:
+  val:
+    actions:
+    - action: REMOVE_LINE
+      where:
+      - column: name
+        regex: PurchasedLicenseInput\.bypassSysDate
+      - column: name
+        regex: PurchasedLicenseInput\.caseCounterStartDate
 
 ----

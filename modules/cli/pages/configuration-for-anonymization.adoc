@@ -1,20 +1,20 @@
-= How-to configure the anonymization in the CLI
-:description: Learn how-to fine-tune the anonymization in the CLI
+= How-to configure anonymization with the CLI
+:description: Learn how-to fine-tune the anonymization performed by the CLI
 
 == Default anonymization
 
-Using the command `export` of the export tool will activate automatically the anonymization.
+Using the command `export` of the export tool will automatically activate the anonymization.
 
 [NOTE]
 ====
-In case you don't want to activate the anonymization during your export, you can add the argument `-da=true` at the end of the `export` command.
+In case you don't want to activate the anonymization during your export and see exported data as is, you can add the argument `-da` or `-da=true` at the end of the `export` command. This option stand for `disable anoymization`.
 ====
 
 Exported data will be anonymized by default to avoid sensitive data leak or with a specified configuration of your own. 
 
 === List of tables anonymized by default
 
-This section lists the tables being exported and identified fields that may contain sensitive information. These fields are handled with specific rules to ensure data security.
+This section lists the tables being exported and the identified fields that may contain sensitive information. These fields are anonymized with specific rules to ensure data security.
 
 ==== arch_process_instance
 
@@ -64,7 +64,6 @@ The `actor` table contains information related to the actors of a process. It de
 ** **Default anonymization**: KEEP
 ** **Details**: Normally, an actor shoudn't have sensitive data because it represent a department, team, job of a company. Those data are not sensitive and can be used for statistic purpose. 
 
-
 ==== arch_process_comment
 
 The `arch_process_comment` table contains information about users who have interact with specific flow nodes, along with other sensitive details. Those comments can include name of the users.
@@ -80,27 +79,31 @@ The `arch_contract_data` table contains information about contracts, including i
 ** **Default anonymization**: REMOVE_LINE
 ** **Details**: Without a specific configuration, the anonymization by default will never export the content of this table because of the sensible data in it. You need to have your own anonymization configuration to handle those data.
 
-
 == Advanced anonymization
+
+The default anonymization can be customized. A list of anonymization action can be configuration for each columns of each tables. All the actions will be applied in the order as declared in the configuration file.
+
+There is one exception, the `REPLACE_WITH_OTHER` actions will be applied after all other actions listed for a column and columns for a row, because we want to ensure that the replacement value (value from another column of the same row) has been anonymized first.
 
 === Generate a sample configuration for data anonymization
 
-Before performing a full export, you can configure the anonymization of specific fields. To assist with this, a command is available in the tool to generate a sample configuration file based on a default setup, allowing you to choose which columns and tables to anonymize.
+Before performing a full export, you can customize the anonymization configuration of specific fields. To assist you with this, a command is available in the tool that generate a sample configuration file based on a default setup, allowing you to choose which columns and tables to anonymize.
 
 The command `gen_default_anon_conf` has been added to the export tool to streamline this process. If needed, you can use the `--output` argument to specify the location for the generated file.
 
 [NOTE]
 ====
-The generated file itself is only a sample of the configuration file, the anonymization section. You'll need to copy and paste that part into your own configuration file used by your export tool.
+The generated file itself is only a sample part of a configuration file, it only generate the anonymization section. You'll need to copy and paste that part into your own configuration file used by your export tool (the `application.yaml` file).
 ====
 
-The generated configuration will also contains all your data contracts key to allow you a convenient way to anonymize them.
+The generated configuration will also list all discovered contract data "keys" to let you know what can be anonymized or not and how (see xref:_contract_data_anonymization[Contract data anonymization]).
 
 == Example of a generated configuration
 
 After executing the command `gen_default_anon_conf`, you will get a configuration file with the anonymization section filled with the default anonymization rules, like below .
 
 [source,yaml]
+----
 bpi:
   anonymizations:
     global:
@@ -140,29 +143,30 @@ bpi:
 
 === Anonymization Rules
 
-Anonymization rules are defined in the configuration file under the `bpi.anonymizations.rules` section. This section contains a list of tables and fields that require anonymization, along with the actions to be performed on them. Each table contains a columns needs to be anonymized sort by their name except if a column contains a `REPLACE_WITH_OTHER` action defined. In this case, the anonymization of the column with this action will be executed at the end of the list to get the anonymized value of the target column.
+Anonymization rules are defined in the configuration file under the `bpi.anonymizations.rules` section. This section contains a list of tables and fields that require anonymization, along with the actions to be performed on them. Each table contains columns that needs to be anonymized sorted by their name.
+If a column contains a `REPLACE_WITH_OTHER` action defined, the anonymization of the column with this action will be executed at the end of the list to get the anonymized value of the targeted replacement column.
 
 .Example
 [source, yaml]
 ----
-  anonymizations:
-    rules:
-     arch_flownode_instance:
-        displayname:
-          actions:
-            - action: REPLACE
-              value: ''
-        displaydescription:
-          actions:
-            - action: REPLACE_WITH_OTHER
-              value: description
-        description:
-          actions:
-            - action: REPLACE
-              value: 'New Value
+anonymizations:
+  rules:
+    arch_flownode_instance:
+      displayname:
+        actions:
+          - action: REPLACE
+            value: ''
+      displaydescription:
+        actions:
+          - action: REPLACE_WITH_OTHER
+            value: description
+      description:
+        actions:
+          - action: REPLACE
+            value: 'New Value'
 ----
 
-In this example, the `arch_flownode_instance` table contains three columns that require anonymization: `displayname`, `displaydescription`, and `description`. First the `description` column will have its value replaced with the string `New Value`. Then the `displayname` column will have its value replaced with an empty string. Finally the `displaydescription` column will be replaced with the value of the `description` column.
+In this example, the `arch_flownode_instance` table contains three columns that require anonymization: `displayname`, `displaydescription`, and `description`. First the `description` column will have its value replaced with the string `New Value`. Then the `displayname` column will have its value replaced with an empty string. Finally the `displaydescription` column will be replaced with the value of the `description` column ( => `New Value` ).
 
 
 === Content max size

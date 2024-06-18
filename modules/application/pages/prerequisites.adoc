@@ -1,4 +1,5 @@
 = Bonita Process Insights Prerequisites
+:description: give all prerequisites before using BPI application
 
 * Internet connexion
 

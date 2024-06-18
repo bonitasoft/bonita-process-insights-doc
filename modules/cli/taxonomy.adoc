@@ -1,3 +1,3 @@
-* xref:index.adoc[Command line for Exporting from Bonita]
-** xref:configuration-for-anonymization.adoc[Configure the anonymization]
-*** xref:actions-anonymization.adoc[Actions types for anonymization]
+* xref:index.adoc[Exporting data from Bonita]
+** xref:configuration-for-anonymization.adoc[How to configure anonymization]
+*** xref:actions-anonymization.adoc[Anonymization actions]

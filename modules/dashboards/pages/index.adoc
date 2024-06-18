@@ -12,9 +12,9 @@ The Overview Dashboard is a powerful tool for gaining deep visibility into busin
 
 Whether you're a process owner, analyst, or executive, this dashboard equips you with the insights you need to optimize processes and achieve operational excellence.
 
-image::/images/dashboard_overview.png[]
+image::dashboard_overview.png[Dashboard overview]
 
 === Dashboard compare
 The dashboard is a comparison between two processes(different version or same version with different filters) within a BPM (Business Process Management) context.
 
-image::/images/dashboard_process_compare.png[]
+image::dashboard_process_compare.png[Process compare dashboard]

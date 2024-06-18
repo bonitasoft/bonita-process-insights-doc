@@ -8,13 +8,13 @@ You can easily analyze all execution data of your processes to better understand
 
 It is also possible to set time-based goals (Business Goals) to verify the achievement of your business objectives.
 
-image::/images/BPI_homepage.png[]
+image::BPI_homepage.png[home page]
 
 == Manage applications
 
 You can add an application if it's the first time you access BPI application or if you want to add a new type of dataset.
 
-image::/images/create application[]
+image::create application.png[Craete application]
 
 == Import data
 Once the export tool generated the zip file containing your dataset you can perform the import.

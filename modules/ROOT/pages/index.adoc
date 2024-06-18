@@ -4,7 +4,6 @@
 
 == What is Bonita Process Insights?
 
-IMPORTANT: this is a work in progress!!
 
 Bonita Process Insights is an independent product from Bonita Platform, in the form of a web application hosted by Bonitasoft, embedding data analytics dashboards.
 
@@ -26,3 +25,12 @@ What does it mean for your business?
 Bonita Process Insights empowers Bonita Platform users to assess the performance of their processes and formulate data-driven action plans for continuous improvement.
 
 Identify bottlenecks, inefficiencies, deviations, and areas for improvement. Investigate specific process instances and stages. With Bonita Process Insights, you have all the tools you need to improve performance and efficiency, and drive your business towards operational excellence.
+
+
+== Bonita Process Insights Release Note
+
+* Export Tool
+** Databases supported: Postgres & Oracle
+** Advanced anonymization
+
+* Dashboards

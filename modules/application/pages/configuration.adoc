@@ -19,5 +19,9 @@ image::create application.png[Craete application]
 == Import data
 Once the export tool generated the zip file containing your dataset you can perform the import.
 
+image::BPI-import-data-page.png[Import Data]
+
 == Define Business Goals
 You can either define a Business goal for a specific process either for any flownode you want.
+
+image

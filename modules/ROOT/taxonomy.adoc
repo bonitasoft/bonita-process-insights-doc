@@ -1,2 +1,6 @@
 * Bonita Process Insights
 ** xref:index.adoc[Introduction]
+* Command line for exporting from Bonita
+* Bonita Process Insights application
+** xref:/dashboards/index.adoc[Dashboards]
+

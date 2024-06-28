@@ -1,0 +1,27 @@
+= Bonita Process Insights Application
+:description: Explain how to use and configure the CLI to export data from a Bonita database
+
+== Overview
+The Bonita Process Insights application allows you to manage your datasets from your Bonita usage.
+
+You can easily analyze all execution data of your processes to better understand your teams' activities.
+
+It is also possible to set time-based goals (Business Goals) to verify the achievement of your business objectives.
+
+== Glossary
+=== Business Goals
+Before exporting, you need to configure the connection to the Bonita Instance from which you want to export the data.
+
+=== Cases
+This is an instance of a process
+
+=== Flownode
+A Flow Node in BPMN is an element within a process that represents a point in the flow where something happens.
+It can be an activity that needs to be performed, a decision point, an event that occurs, or a gateway that dictates the flow's path based on certain conditions.
+Flow Nodes are interconnected by Sequence Flows, which determine the order in which activities are executed in the process.
+Type of flownodes:
+
+* **Events**
+* **Activities**
+* **Events Gateways**
+

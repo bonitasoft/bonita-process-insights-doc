@@ -1,0 +1,24 @@
+= Process overview
+
+This document serves as a comprehensive guide for understanding and utilizing the BPM Dashboard for effective process management.
+It provides detailed insights into the various charts and metrics presented on the dashboard, facilitating a deep understanding of the process execution within the BPM context.
+
+The Overview Dashboard is a powerful tool for gaining deep visibility into business processes, monitoring performance and driving continuous improvement initiatives.
+
+Whether you're a process owner, analyst, or executive, this dashboard equips you with the insights you need to optimize processes and achieve operational excellence.
+
+== Global view
+
+image::process-overview-home-page.png[Dashboard overview]
+
+== Section 1: Chart Analysis
+=== Cases Objective Status (pie chart)
+*Description*: This chart provides a visual representation of the proportion of cases that have met their objectives versus those that have not.
+
+*Purpose*: To give stakeholders an immediate sense of process success rates and highlight areas requiring attention.
+
+=== Cases Ended Over Time (Bar Graph)
+
+*Description*: This graph illustrates the number of cases concluded over a selected time period, differentiated by whether they have met their objectives.
+
+*Purpose*: To track and analyze the flow of process completion over time, identifying any patterns or irregularities.

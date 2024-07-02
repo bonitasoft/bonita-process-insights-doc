@@ -24,4 +24,4 @@ image::BPI-import-data-page.png[Import Data]
 == Define Business Goals
 You can either define a Business goal for a specific process either for any flownode you want.
 
-image
+image::create-business-goal.png[Create business goal]

@@ -128,7 +128,7 @@ Variants with numerous flow nodes may be inherently complex, affecting the execu
 
 The BPM dashboard offers critical insights into the efficiency and timeliness of business process variants.
 By monitoring these metrics against temporal objectives, organizations can target improvements to enhance overall process performance.
-This documentation is now more aligned with the importance of meeting temporal objectives and includes a xref:/application/pages/index.adoc[Glossary] to help clarify technical ssary to help clarify technical terms.
+This documentation is now more aligned with the importance of meeting temporal objectives and includes a xref: application/pages/index.adoc[Glossary] to help clarify technical ssary to help clarify technical terms.
 For actual implementation, a detailed process audit and analysis would be required.
 
 == Cases

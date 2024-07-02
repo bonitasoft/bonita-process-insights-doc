@@ -12,7 +12,7 @@ Whether you're a process owner, analyst, or executive, this dashboard equips you
 
 image::process-overview-home-page.png[Dashboard overview]
 
-== Section 1: Chart Analysis
+== Chart Analysis
 
 === Cases Objective Status (pie chart)
 
@@ -26,7 +26,7 @@ image::process-overview-home-page.png[Dashboard overview]
 
 *Purpose*: To track and analyze the flow of process completion over time, identifying any patterns or irregularities.
 
-== Section 2: Metrics and KPI analysis
+== Metrics and KPI analysis
 
 === Process Definition Metrics
 

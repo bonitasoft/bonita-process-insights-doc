@@ -9,22 +9,24 @@ Bonita Process Insights is an independent product from Bonita Platform, in the f
 
 Bonita Process Insights allows you to:
 
-Monitor and analyze business processes built in Bonita Platform
+* Monitor and analyze business processes built in Bonita Platform
 
-Visualize performance metrics in an intuitive dashboard interface
+* Visualize performance metrics in an intuitive dashboard interface
 
-Track key metrics such as cycle time, throughput, error rates, and resource utilization
+* Track key metrics such as cycle time, throughput, error rates, and resource utilization
 
-Define your business goals related to process performance
+* Define your business goals related to process performance
 
-Monitor progress towards these goals through relevant KPIs
+* Monitor progress towards these goals through relevant KPIs
 
-Compare and benchmark performance
+* Compare and benchmark performance
 
-What does it mean for your business?
+== What does it mean for your business?
+
 Bonita Process Insights empowers Bonita Platform users to assess the performance of their processes and formulate data-driven action plans for continuous improvement.
 
-Identify bottlenecks, inefficiencies, deviations, and areas for improvement. Investigate specific process instances and stages. With Bonita Process Insights, you have all the tools you need to improve performance and efficiency, and drive your business towards operational excellence.
+Identify bottlenecks, inefficiencies, deviations, and areas for improvement.
+Investigate specific process instances and stages. With Bonita Process Insights, you have all the tools you need to improve performance and efficiency, and drive your business towards operational excellence.
 
 
 == Bonita Process Insights Release Note
@@ -34,3 +36,5 @@ Identify bottlenecks, inefficiencies, deviations, and areas for improvement. Inv
 ** Advanced anonymization
 
 * Dashboards
+** xref:dashboards:process-overview.adoc[Process Overview]
+** xref:dashboards:process-compare.adoc[Process Compare]

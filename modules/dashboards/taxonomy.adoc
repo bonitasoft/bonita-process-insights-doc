@@ -1,4 +1,3 @@
 * Dashboards
-** xref:index.adoc[Introduction]
 ** xref:process-overview.adoc[Process Overview]
 ** xref:process-compare.adoc[Process Compare]

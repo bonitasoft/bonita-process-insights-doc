@@ -22,8 +22,6 @@ The dashboard is a comparison between two processes(different version or same ve
 
 image::dashboard_process_compare.png[Process compare dashboard]
 
-
-
 ==== Glossary
 
 *Variant:* A specific version or pathway of a business process within an organization.

@@ -6,6 +6,16 @@ A Command Line Interface tool (CLI) is used to provision data extracted from Bon
 
 The command line tool is delivered as a package, containing a basic documentation about commands and a sample configuration file.
 
+
+== BPI license
+
+Most CLI commands require a license to run.
+
+You can retrieve a license by logging into your Bonita Process Insights instance and accessing the "Generate license" function.
+
+Once you have the license, place the license file in the same directory as the CLI executable.
+
+
 == Export data
 
 === Configuration

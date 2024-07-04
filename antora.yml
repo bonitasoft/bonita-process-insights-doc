@@ -13,4 +13,5 @@ asciidoc:
 nav:
   - modules/ROOT/taxonomy.adoc
   - modules/cli/taxonomy.adoc
+  - modules/application/taxonomy.adoc
   - modules/dashboards/taxonomy.adoc

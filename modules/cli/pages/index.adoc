@@ -38,7 +38,7 @@ After you finish to configure your file, place it next to the executable jar dir
 To export your data, use the following command line :
 `pi-cli bonita export`
 
-You can add some arguments like `-output` to specify the exact path of the exported zip file. 
+You can add some arguments like `--output` to specify the exact path of the exported zip file. 
 
 === Anonymize exported data
 

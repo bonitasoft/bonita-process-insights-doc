@@ -11,7 +11,7 @@ The command line tool is delivered as a package, containing a basic documentatio
 
 Most CLI commands require a license to run.
 
-You can retrieve a license by logging into your Bonita Process Insights instance and accessing the "Generate license" function.
+You can retrieve a license by logging into your Bonita Process Insights instance and accessing the xref:application:license-generation.adoc["Generate license" feature].
 
 Once you have the license, place the license file in the same directory as the CLI executable.
 
@@ -22,16 +22,16 @@ Once you have the license, place the license file in the same directory as the C
 
 Before exporting, you need to configure the connection to the Bonita Instance from which you want to export the data.
 
-Export tool can support two type of databases Postgresql and Oracle. The jdbc url must be adapted according to the type of database you will use. 
+Export tool can support two type of databases Postgresql and Oracle. The jdbc url must be adapted according to the type of database you will use.
 
-* **Oracle** :    
+* **Oracle** :
 
 [source,yaml]
 ----
 jdbc-url: jdbc:oracle:thin:@${bonita.database.host}:${bonita.database.port}/${bonita.database.name}?oracle.net.disableOob=true`jdbc-url`
 ----
 
-* **PostgresSql** : 
+* **PostgresSql** :
 
 [source,yaml]
 ----
@@ -48,10 +48,10 @@ After you finish to configure your file, place it next to the executable jar dir
 To export your data, use the following command line :
 `pi-cli bonita export`
 
-You can add some arguments like `-output` to specify the exact path of the exported zip file. 
+You can add some arguments like `-output` to specify the exact path of the exported zip file.
 
 === Anonymize exported data
 
-By default, your exported data will be anonymized. It's possible to deactivate the anonymization or adding your own configuration. 
+By default, your exported data will be anonymized. It's possible to deactivate the anonymization or adding your own configuration.
 
 For more details, see xref:configuration-for-anonymization.adoc[Configure the anonymization]

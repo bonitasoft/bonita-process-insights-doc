@@ -10,7 +10,7 @@ Whether you're a process owner, analyst, or executive, this dashboard equips you
 
 == Global view
 
-image::process-overview-home-page.png[Dashboard overview]
+image::process-overview.png[Dashboard overview]
 
 == Chart Analysis
 

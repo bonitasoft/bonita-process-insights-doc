@@ -7,7 +7,7 @@ It provides detailed insights into the various charts and metrics presented on t
 The Process Compare Dashboard is a powerful tool for comparing two versions of a process or the same process with different parameters.
 Whether you're a process owner, analyst, or executive, this dashboard equips you with the insights you need to optimize processes and achieve operational excellence.
 
-image::dashboard_process_compare.png[Process Compare]
+image::process-compare.png[Process Compare]
 
 == Introduction
 This document provides comprehensive documentation for the Process Compare Dashboard.

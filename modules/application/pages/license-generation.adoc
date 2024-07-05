@@ -1,0 +1,17 @@
+= Generate a license for the data exporter
+:description: Explain how to use generate a license to later use it to export data from Bonita
+
+
+== Overview
+
+As described in the xref:cli:index.adoc[data exporter documentation], most CLI commands require a license to run.
+
+The license can be generated from the Bonita Process Insights application.
+
+
+== Generate and retrieve the license
+
+
+You can generate and retrieve a license by logging into your Bonita Process Insights instance and accessing the "Generate license" feature from any page.
+
+// TODO screenshot

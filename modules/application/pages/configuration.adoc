@@ -8,18 +8,18 @@ You can easily analyze all execution data of your processes to better understand
 
 It is also possible to set time-based goals (Business Goals) to verify the achievement of your business objectives.
 
-image::BPI_homepage.png[home page]
+image::home.png[home page]
 
 == Manage applications
 
 You can add an application if it's the first time you access BPI application or if you want to add a new type of dataset.
 
-image::create application.png[Craete application]
+image::create-application.png[Craete application]
 
 == Import data
 Once the export tool generated the zip file containing your dataset you can perform the import.
 
-image::BPI-import-data-page.png[Import Data]
+image::import-data.png[Import Data]
 
 == Define Business Goals
 You can either define a Business goal for a specific process either for any flownode you want.

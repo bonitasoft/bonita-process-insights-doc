@@ -14,4 +14,4 @@ The license can be generated from the Bonita Process Insights application.
 
 You can generate and retrieve a license by logging into your Bonita Process Insights instance and accessing the "Generate license" feature from any page.
 
-// TODO screenshot
+image::generate-license.png[Generate license]

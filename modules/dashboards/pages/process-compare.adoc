@@ -1,5 +1,5 @@
 = Process Compare
-:description: Tool for comparing different versions or parameters of a process to optimize performance.
+:description: Comprehensive guide on using the Process Compare Dashboard to compare different versions or parameters of a process for optimization.
 
 This document serves as a comprehensive guide for understanding and utilizing the BPM Dashboard for effective process management.
 It provides detailed insights into the various charts and metrics presented on the dashboard, facilitating a deep understanding of the process execution within the BPM context.
@@ -12,12 +12,12 @@ image::process-compare.png[Process Compare]
 == Introduction
 This document provides comprehensive documentation for the Process Compare Dashboard.
 The dashboard is designed to compare the performance and execution details of different process instances within a Business Process Management (BPM) context.
-Specifically, it compares two instances of the selected process from your application. This documentation will cover the charts and visual representations as well as the various metrics and key performance indicators (KPIs) visible on the dashboard.
+Specifically, it compares two instances of the selected process from your application.
+This documentation covers the charts and visual representations as well as the various metrics and key performance indicators (KPIs) visible on the dashboard.
 
 == Dashboard Overview
 The Process Compare Dashboard is a tool for analyzing and comparing the execution of different BPM processes.
-Users can filter processes by time range, application, specific process, and case objective status.
-The dashboard includes visual representations of the process flows and summary tables with detailed metrics and KPIs.
+Users can filter processes by time range, application, specific process, and case objective status. The dashboard includes visual representations of the process flows and summary tables with detailed metrics and KPIs.
 
 == Charts and Visual Representations
 
@@ -52,18 +52,15 @@ This helps in understanding how the process is executed and where potential bott
 
 The average time taken to complete the process.
 
-
 *Significance*
 
-This metric indicates the efficiency of the process.
-A short duration suggests a more efficient process, while a long duration might indicate delays or inefficiencies.
+This metric indicates the efficiency of the process. A short duration suggests a more efficient process, while a long duration might indicate delays or inefficiencies.
 
 === Standard Deviation Duration
 
 *Description*
 
 The variability in the time taken to complete the process.
-
 
 *Significance*
 
@@ -78,8 +75,7 @@ The total number of instances where the process was executed.
 
 *Significance*
 
-This provides a sample size for the analysis.
-A high number of cases allows for more robust statistical analysis and reliability of the metrics.
+This provides a sample size for the analysis. A high number of cases allows for more robust statistical analysis and reliability of the metrics.
 
 === Number of Cases with Objective Failed
 
@@ -89,8 +85,7 @@ The number of process instances that failed to meet their objectives.
 
 *Significance*
 
-This metric is crucial for assessing the effectiveness of the process.
-A higher number of failed objectives would indicate issues that need addressing.
+This metric is crucial for assessing the effectiveness of the process. A higher number of failed objectives would indicate issues that need addressing.
 
 === Number of Flow Nodes
 
@@ -100,8 +95,7 @@ The total number of individual steps or activities within the process.
 
 *Significance*
 
-The number of flow nodes provides an indication of the process complexity.
-More nodes can indicate a more complex process, which might require more time and resources to execute.
+The number of flow nodes provides an indication of the process complexity. More nodes can indicate a more complex process, which might require more time and resources to execute.
 
 === Number of Flow Nodes with Objective Failed
 
@@ -109,11 +103,9 @@ More nodes can indicate a more complex process, which might require more time an
 
 The number of flow nodes where the objectives were not met.
 
-
 *Significance*
 
-This metric helps in pinpointing specific steps within the process that may be problematic.
-For example: Zero failures indicate a robust process at each step.
+This metric helps in pinpointing specific steps within the process that may be problematic. For example: Zero failures indicate a robust process at each step.
 
 === Temporal Metrics
 
@@ -130,3 +122,4 @@ This can help in understanding the recency and relevance of the data.
 The Process Compare Dashboard is a valuable tool for BPM specialists, providing detailed insights into process performance through visual representations and key metrics.
 By understanding and utilizing the information presented in the dashboard, organizations can optimize their processes for efficiency, consistency, and effectiveness.
 This documentation serves as a guide to interpreting and leveraging the dashboard's data for continuous process improvement.
+

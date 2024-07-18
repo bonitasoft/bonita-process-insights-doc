@@ -6,6 +6,8 @@ A Command Line Interface tool (CLI) is used to provision data extracted from Bon
 
 The command line tool is delivered as a package, containing a basic documentation about commands and a sample configuration file.
 
+You can download the tool here:
+
 == Export data
 
 === Configuration

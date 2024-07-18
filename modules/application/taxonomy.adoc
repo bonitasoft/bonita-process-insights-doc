@@ -1,4 +1,2 @@
 * xref:index.adoc[Bonita Process Insights Application]
-** xref:prerequisites.adoc[Prerequisites]
-** xref:configuration.adoc[Configure the application]
 

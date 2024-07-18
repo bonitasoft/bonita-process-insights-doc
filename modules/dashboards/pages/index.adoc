@@ -9,6 +9,16 @@ The Process Overview Analysis dashboard offers a comprehensive view of individua
 The Process Comparison dashboard allows for side-by-side analysis of two processes, facilitating benchmarking and optimization.
 Dive into these dashboards to unlock deeper insights and drive efficiency in your workflows.
 
+== Dashboards
+
+
+=== Dashboard User Insights
+
+The Process User Insights dashboard is a comprehensive tool designed to provide a detailed analysis of the execution of business processes.
+This dashboard offers a visual and metric-driven representation of various aspects of the process, including task performance, actor involvement, and overall process efficiency.
+By utilizing this dashboard, stakeholders can monitor key performance indicators, identify areas for improvement, and ensure that business processes are executed effectively and efficiently.
+
+image::process-user-insights.png[Process User Insights]
 
 === Dashboard overview
 The Overview Dashboard is a powerful tool for gaining deep visibility into business processes, monitoring performance and driving continuous improvement initiatives.
@@ -22,7 +32,7 @@ The dashboard is a comparison between two processes(different version or same ve
 
 image::process-compare.png[Process compare dashboard]
 
-==== Glossary
+== Glossary
 
 *Variant:* A specific version or pathway of a business process within an organization.
 

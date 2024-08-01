@@ -143,6 +143,16 @@ arch_process_comment:
 
 This action can be useful for comments, descriptions or free text like data. It let you mask such things as emails, usernames or logins with a specific pattern and so on. Because you can define a list of regex action in a specific order, you can chain regex replacements to break anonymization in smaller sucessive replacements and thus simpler regex.
 
+
+[WARNING]
+====
+Usage on arch_process_data and risk of not detecting new contract data
+
+TODO: elaborate
+====
+
+
+
 === KEEP
 
 Keep the value, no anonymization done.

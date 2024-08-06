@@ -108,15 +108,18 @@ Indicates the frequency of process steps that lack designated user responsibilit
 
 ==== High Objective Failure Rates
 
-The 'Update Case Data -> Create new Support Case via Web' variant has a notably high failure rate (61.9%), significantly exceeding its temporal objectives. This suggests a critical need for process reevaluation.
+The 'Update Case Data -> Create new Support Case via Web' variant has a notably high failure rate (61.9%), significantly exceeding its temporal objectives.
+This suggests a critical need for process reevaluation.
 
 ==== Process Execution Time
 
-Variants with extended average durations and high standard deviations are prone to be inconsistent with their temporal objectives. These may require streamlining or additional resources to improve time efficiency.
+Variants with extended average durations and high standard deviations are prone to be inconsistent with their temporal objectives.
+These may require streamlining or additional resources to improve time efficiency.
 
 ==== Complexity and User Assignment
 
-Variants with numerous flow nodes may be inherently complex, affecting the execution time. Furthermore, instances of unassigned user flow nodes could indicate unclear process ownership, contributing to delays.
+Variants with numerous flow nodes may be inherently complex, affecting the execution time.
+Furthermore, instances of unassigned user flow nodes could indicate unclear process ownership, contributing to delays.
 
 ==== Recommendations
 
@@ -128,8 +131,6 @@ Variants with numerous flow nodes may be inherently complex, affecting the execu
 
 The BPM dashboard offers critical insights into the efficiency and timeliness of business process variants.
 By monitoring these metrics against temporal objectives, organizations can target improvements to enhance overall process performance.
-This documentation is now more aligned with the importance of meeting temporal objectives and includes a xref:index.adoc[Glossary] to help clarify technical ssary to help clarify technical terms.
-For actual implementation, a detailed process audit and analysis would be required.
 
 == Cases
 
@@ -167,7 +168,7 @@ The focus is on the performance of each case with respect to the temporal object
 *Adherence to Temporal Objectives*
 
 The 'Case Objective Status' column is crucial in determining the efficiency of process executions.
-Any case with a 'failed' status indicate a breach of the temporal objectives, warranting further investigation.
+Any case with a 'failed' status indicates a breach of the temporal objectives, warranting further investigation.
 
 *Case Duration Insights*
 

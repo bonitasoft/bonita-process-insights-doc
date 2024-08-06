@@ -6,6 +6,11 @@ A Command Line Interface tool (CLI) is used to provision data extracted from Bon
 
 The command line tool is delivered as a package, containing a basic documentation about commands and a sample configuration file.
 
+=== How to obtain the tool?
+
+[example]
+To obtain the export tool, ask your Bonitasoft contact
+
 
 == BPI license
 

@@ -8,8 +8,7 @@ The command line tool is delivered as a package, containing a basic documentatio
 
 === How to obtain the tool?
 
-[example]
-To obtain the export tool, ask your Bonitasoft contact
+TIP: To obtain the export tool, ask your Bonitasoft contact
 
 
 == BPI license

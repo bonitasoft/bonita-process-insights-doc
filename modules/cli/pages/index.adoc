@@ -9,7 +9,9 @@ The command line tool is delivered as a package, containing a basic documentatio
 === How to obtain the tool?
 
 [example]
-To obtain the export tool, ask your Bonitasoft contact
+To obtain the export tool, contact a sales representative using this form: https://www.bonitasoft.com/contact-us[contact us]
+
+All configuration and execution instructions are described in the tool's *readme.html* file
 
 == Export data
 
@@ -17,16 +19,16 @@ To obtain the export tool, ask your Bonitasoft contact
 
 Before exporting, you need to configure the connection to the Bonita Instance from which you want to export the data.
 
-Export tool can support two type of databases Postgresql and Oracle. The jdbc url must be adapted according to the type of database you will use. 
+Export tool can support two types of databases PostgreSQL and Oracle. The JDBC URL must be adapted according to the type of database you will use.
 
-* **Oracle** :    
+* **Oracle**:
 
 [source,yaml]
 ----
 jdbc-url: jdbc:oracle:thin:@${bonita.database.host}:${bonita.database.port}/${bonita.database.name}?oracle.net.disableOob=true`jdbc-url`
 ----
 
-* **PostgresSql** : 
+* **PostgresSql**:
 
 [source,yaml]
 ----
@@ -35,7 +37,7 @@ jdbc-url: jdbc:postgresql://${bonita.database.host}:${bonita.database.port}/${bo
 
 [NOTE]
 ====
-After you finish to configure your file, place it next to the executable jar directory or in a subdirectory named config.
+After you finish configuring your file, place it next to the executable JAR directory or in a subdirectory named config.
 ====
 
 === Exporting data and Importing to BPI
@@ -47,6 +49,8 @@ You can add some arguments like `--output` to specify the exact path of the expo
 
 === Anonymize exported data
 
-By default, your exported data will be anonymized. It's possible to deactivate the anonymization or adding your own configuration. 
+By default, your exported data will be anonymized.
 
-For more details, see xref:configuration-for-anonymization.adoc[Configure the anonymization]
+It's possible to deactivate the anonymization or add your own configuration.
+
+For more details, see xref:configuration-for-anonymization.adoc[Configure the anonymization].

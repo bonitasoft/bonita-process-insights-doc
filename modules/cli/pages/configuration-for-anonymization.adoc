@@ -7,10 +7,10 @@ Using the command `export` of the export tool will automatically activate the an
 
 [NOTE]
 ====
-In case you don't want to activate the anonymization during your export and see exported data as is, you can add the argument `-da` or `-da=true` at the end of the `export` command. This option stand for `disable anoymization`.
+In case you don't want to activate the anonymization during your export and prefer to see exported data as is, you can add the argument `-da` or `-da=true` at the end of the `export` command. This option stands for `disable anonymization`.
 ====
 
-Exported data will be anonymized by default to avoid sensitive data leak or with a specified configuration of your own. 
+Exported data will be anonymized by default to avoid sensitive data leaks, or according to a specified configuration of your choice.
 
 === List of tables anonymized by default
 
@@ -26,7 +26,7 @@ The `arch_process_instance` table contains information related to process instan
 
 * **stringindex1, stringindex2, stringindex3, stringindex4, stringindex5**: 
 ** **Default anonymization**: HASH
-** **Details**: These fields holds the search indexes that are defined at development phase that can be used to search cases using the APIs and case list. These fields are usually filled with specific Groovy code, which may expose sensitive data. Therefore, they are hashed by default to maintain data security.
+** **Details**: These fields hold the search indexes that are defined at the development phase that can be used to search cases using the APIs and case list. These fields are usually filled with specific Groovy code, which may expose sensitive data. Therefore, they are hashed by default to maintain data security.
 
 ==== arch_flownode_instance
 
@@ -46,7 +46,7 @@ The `arch_flownode_instance` table contains information related to the execution
 
 * **hitbys, loopdatainputref, loopdataoutputref, datainputitemref, dataoutputitemref**: 
 ** **Default anonymization**: `KEEP`
-** **Details**: These fields are technical data of the flow node instance. Those data are not sensitive and can be used for statistic purpose. 
+** **Details**: These fields are technical data of the flow node instance. This data is not sensitive and can be used for statistical purpose.
 
 ==== user_
 
@@ -54,7 +54,7 @@ The `user_` table contains information related to the users. A specific field re
 
 * **username**: 
 ** **Default anonymization**: `HASH`
-** **Details**: This field contains the username of an user, which indeed include sensitive data. By default, this field will be hashed.
+** **Details**: This field contains the username of an user, which indeed includes sensitive data. By default, this field will be hashed.
 
 ==== actor
 
@@ -62,38 +62,38 @@ The `actor` table contains information related to the actors of a process. It de
 
 * **name, displayname, description**: 
 ** **Default anonymization**: `KEEP`
-** **Details**: Normally, an actor shoudn't have sensitive data because it represent a department, team, job of a company. Those data are not sensitive and can be used for statistic purpose. 
+** **Details**: Normally, an actor shoudn't have sensitive data because it represent a department, team, job of a company. This data is not sensitive and can be used for statistical purpose.
 
 ==== arch_process_comment
 
-The `arch_process_comment` table contains information about users who have interact with specific flow nodes, along with other sensitive details. Those comments can include name of the users.
+The `arch_process_comment` table contains information about users who have interact with specific flow nodes, along with other sensitive details. These comments may include the name of the user.
 
 * **content**: 
 ** **Default anonymization**: `REMOVE_LINE`
-** **Details**: Without a specific configuration, the anonymization by default will never export the content of this table because of the sensible data in it. You need to have your own anonymization configuration to handle those data.
+** **Details**: Without a specific configuration, the anonymization by default will never export the content of this table because of the sensible data in it. You need to have your own anonymization configuration to handle this data.
 
 ==== arch_contract_data
 The `arch_contract_data` table contains information about contracts, including inputs and constraints. Due to the flexibility in specifying various types of inputs, this table often contains sensitive data.
 
 * **name, val**: 
 ** **Default anonymization**: `REMOVE_LINE`
-** **Details**: Without a specific configuration, the anonymization by default will never export the content of this table because of the sensible data in it. You need to have your own anonymization configuration to handle those data.
+** **Details**: Without a specific configuration, the anonymization by default will never export the content of this table because of the sensible data in it. You need to have your own anonymization configuration to handle this data.
 
 == Advanced anonymization
 
-The default anonymization can be customized. A list of anonymization action can be configuration for each columns of each tables. All the actions will be applied in the order as declared in the configuration file.
+The default anonymization can be customized. A list of anonymization action can be configured for each columns of each tables. All the actions will be applied in the order declared in the configuration file.
 
-There is one exception, the `REPLACE_WITH_OTHER` actions will be applied after all other actions listed for a column and columns for a row, because we want to ensure that the replacement value (value from another column of the same row) has been anonymized first.
+There is one exception, the `REPLACE_WITH_OTHER` actions will be applied after all other actions listed for a column and columns within a row. This ensures that the replacement value (value from another column of the same row) has been anonymized first.
 
 === Generate a sample configuration for data anonymization
 
-Before performing a full export, you can customize the anonymization configuration of specific fields. To assist you with this, a command is available in the tool that generate a sample configuration file based on a default setup, allowing you to choose which columns and tables to anonymize.
+Before performing a full export, you can customize the anonymization configuration for specific fields. To assist you, the tool includes a command that generates a sample configuration file based on a default setup, allowing you to choose which columns and tables to anonymize.
 
 The command `gen_default_anon_conf` has been added to the export tool to streamline this process. If needed, you can use the `--output` argument to specify the location for the generated file.
 
 [NOTE]
 ====
-The generated file itself is only a sample part of a configuration file, it only generate the anonymization section. You'll need to copy and paste that part into your own configuration file used by your export tool (the `application.yaml` file).
+The generated file itself is only a sample part of a configuration file, it only generates the anonymization section. You'll need to copy and paste that part into your own configuration file used by your export tool (the `application.yaml` file).
 ====
 
 The generated configuration will also list all discovered contract data "keys" to let you know what can be anonymized or not and how (see <<Contract data anonymization>> ).
@@ -171,9 +171,9 @@ In this example, the `arch_flownode_instance` table contains three columns that 
 
 === Content max size
 
-Some exported values may have a long size and will be truncated with a default size defined by the configuration entry `bpi.anonymizations.global.max_size`. 
+Some exported values may be lengthy and will be truncated with a default size defined by the configuration entry `bpi.anonymizations.global.max_size`.
 
-Default max size is *512*, but this can be override in the configuration.
+The default maximum size is *512*, but this can be overridden in the configuration.
 
 .Example
 [source, yaml]
@@ -186,11 +186,11 @@ bpi:
 
 [NOTE]
 ====
-The max size will be applied to the values annonymized with actions : `KEEP`, `REPLACE`, `REGEX_REPLACE`.
-The result of other actions are left untouched because truncation may corrupt the value (Truncation of an hash make no sense).
+The maximum size will be applied to values anonymized with the actions : `KEEP`, `REPLACE`, `REGEX_REPLACE`.
+The result of other actions are left untouched, as truncation could corrupt the value (e.g., truncating a hash would be meaningless).
 ====
 
-Max size can also be overriden at `action` level. If no max size is specified on an action then the global action max size is applied.
+Max size can also be overridden at `action` level. If no max size is specified on an action then the global action max size is applied.
 
 .Example
 [source, yaml]

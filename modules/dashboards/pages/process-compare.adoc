@@ -12,12 +12,13 @@ image::process-compare.png[Process Compare]
 == Introduction
 This document provides comprehensive documentation for the Process Compare Dashboard.
 The dashboard is designed to compare the performance and execution details of different process instances within a Business Process Management (BPM) context.
-Specifically, it compares two instances of the selected process from your application.
+Specifically, it compares two instances of the selected process from your application or it can also compare the same process on 2 time frames.
 This documentation covers the charts and visual representations as well as the various metrics and key performance indicators (KPIs) visible on the dashboard.
 
 == Dashboard Overview
 The Process Compare Dashboard is a tool for analyzing and comparing the execution of different BPM processes.
-Users can filter processes by time range, application, specific process, and case objective status. The dashboard includes visual representations of the process flows and summary tables with detailed metrics and KPIs.
+User can filter processes by time range, application, specific process, and case objective status.
+The dashboard includes visual representations of the process flows and summary tables with detailed metrics and KPIs.
 
 == Charts and Visual Representations
 

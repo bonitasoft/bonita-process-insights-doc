@@ -7,7 +7,7 @@ asciidoc:
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-next-release: false
-    page-hide-search-bar: true
+    page-hide-search-bar: false
     page-hide-components: 'bcd'
 nav:
   - modules/ROOT/taxonomy.adoc

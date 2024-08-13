@@ -12,13 +12,13 @@ It is also possible to set time-based goals (Business Goals) to verify the achie
 
 * Internet connexion
 
-* Any supported browser in latest version
+* Any web browser
 
 * At least one functional process diagram and a BDM defined in Bonita Studio (version 2021.2 and beyond)
 
 * A Bonita Process Insights account / license
 
-* Be able to run the export tool on your BPM database (for cloud customer you should ask to Bonita Cloud team)
+* Be able to run the export tool on your BPM database
 
 == Configuration
 

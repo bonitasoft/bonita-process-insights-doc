@@ -7,7 +7,9 @@ asciidoc:
     page-pagination: true # display links to previous/next pages at the bottom of the page
     page-editable: true
     page-next-release: false
-    page-hide-search-bar: true
+    # remove this attribute when the BPI documentation is ready
+    page-custom-message: The Bonita Process Insights documentation is currently being prepared. It will soon be published on the production site. Stay tuned!
+    page-hide-search-bar: false
 nav:
   - modules/ROOT/taxonomy.adoc
   - modules/cli/taxonomy.adoc

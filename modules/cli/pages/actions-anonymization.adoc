@@ -1,4 +1,4 @@
-= Actions types for anonymization
+= Actions Types for anonymization
 :description: Describe all possible actions for anonymization
 :javase-javadoc-base-url: https://docs.oracle.com/en/java/javase/21/docs/api
 
@@ -10,7 +10,7 @@ xref:configuration-for-anonymization.adoc[How-to configure anonymization with th
 
 Additionally, you can define a fallback mechanism in case the primary action does not work or does not find a match (for example, using the `REGEX_REPLACE` action).
 
-=== Order of execution of the actions
+=== Order of Action Execution
 
 The actions are executed in the order they are defined in the configuration file. The order of the actions is important because the output of one action is the input of the next action.
 The fallback action is executed only if none of the defined actions match.
@@ -38,21 +38,21 @@ arch_process_comment:
 
 === Where conditions
 
-It is possible to define `where` conditions on an action, The where conditions refers to column of the same table (no cross table conditions). The action will be performed if a where condition in the conditions list match. This can be translated as an `OR` operator between conditions: Apply this action if col x match regex 1  OR col x match regex 1 OR col y match regex 2 OR ... 
+It is possible to define `where` conditions for an action, The where conditions refer to column within the same table (cross-table conditions are not supported). The action will be performed if any conditions in the where conditions list matches. This can be translated as an `OR` operator between conditions: Apply this action if col x match regex 1  OR col x match regex 1 OR col y match regex 2 OR ...
 
 == Available actions
 
 === HASH
 
-Replace the values by a Hash, this allows to remove readable values but keeps the cardinality. Safe hash function should be used ( SHA-256 for instance )
+Replace the values with a Hash. This approach removes readable values while preserving cardinality. A secure hash function, such as SHA-256, should be used.
 
-*Usage* : Value containing sensitive information but on which you want to have accurate statistic and the ability to see the impact on the process execution.
+*Usage*: Value containing sensitive information for which you want to maintain accurate statistics and assess its impact on process execution.
 
-*Parameters* :
+*Parameters*:
 
-*value* : the algorithm to use for hashing. Optional, default to SHA-512
+*value*: the algorithm to use for hashing. Optional, default to SHA-512
 
-Sample configuration :
+Sample configuration:
 [source,yaml]
 ----
 arch_process_instance:
@@ -64,15 +64,15 @@ arch_process_instance:
 
 === REPLACE
 
-Replace the value with a specified value ( which can be empty )
+Replace the value with a specified value (which can be empty).
 
-*Usage* : Value containing sensitive information you want to hide.
+*Usage*: Value containing sensitive information that you want to hide.
 
-*Parameters* :
+*Parameters*:
 
-*value* : The value used to replace the current field. Default value empty
+*value*: The value used to replace the current field. Default value empty.
 
-Sample configuration :
+Sample configuration:
 [source,yaml]
 ----
 arch_flownode_instance:
@@ -84,15 +84,15 @@ arch_flownode_instance:
 
 === REPLACE_WITH_OTHER
 
-Replace a value by the value of another column of the same table and line.
+Replace a value with the value of another column within the same table and line.
 
-*Usage* : Value containing sensitive information you want to replace with another non sensitive meaningful value in the same table.
+*Usage*: Value containing sensitive information that you want to replace with another non-sensitive meaningful value within the same table.
 
-*Parameters* :
+*Parameters*:
 
-*value* : column name of the column to be use to replace the value.  No Default , mandatory
+*value*: column name of the column to be used for replacing the value.  No default ; mandatory.
 
-Sample configuration :
+Sample configuration:
 [source,yaml]
 ----
 arch_flownode_instance:
@@ -104,27 +104,27 @@ arch_flownode_instance:
 
 === REGEX_REPLACE
 
-Replace the value if the regexp match and use the matching group to create the new value.
+Replace the value if the regexp matches and use the matching group to create the new value.
 
 [TIP]
 ====
-The pattern is a regular expression using the {javase-javadoc-base-url}/java.base/java/util/regex/Pattern.html#sum[Java Pattern syntax] that is used to match the value. The value is the replacement pattern (including captured group) that is used to change the value.
+The pattern is a regular expression using the {javase-javadoc-base-url}/java.base/java/util/regex/Pattern.html#sum[Java Pattern syntax] used to match the value. The value is the replacement pattern (including captured group) used to modify the value.
 
 * If several parts of the value match, they are all replaced. The behavior is similar to that of the Java {javase-javadoc-base-url}/java.base/java/util/regex/Matcher.html#replaceAll(java.lang.String)[Matcher.replaceAll] method.
 * If none of the regexps match, a fallback can be configured, which can be any other action.
 ====
 
-*Usage* : Value containing some sensitive information with other non-sensitive one, and you want to keep the non-sensitive information.
+*Usage*: A value containing both sensitive and non-sensitive information, where you want to keep the non-sensitive information.
 
-*Parameters* :
+*Parameters*:
 
-*pattern* : The regular expression to match  Default , mandatory
+*Pattern*: The regular expression to match  Default , mandatory
 
-*value* : The replacement pattern ( including captured group ) to used to change the value. No Default , mandatory
+*Value*: The replacement pattern ( including captured group ) to used to change the value. No Default , mandatory
 
-*fallback* : action to apply if no regexp match.
+*Fallback*: action to apply if no regexp match.
 
-Sample configuration :
+Sample configuration:
 [source,yaml]
 ----
 arch_process_comment:
@@ -141,7 +141,7 @@ arch_process_comment:
         value: hidden comment
 ----
 
-This action can be useful for comments, descriptions or free text like data. It let you mask such things as emails, usernames or logins with a specific pattern and so on. Because you can define a list of regex action in a specific order, you can chain regex replacements to break anonymization in smaller sucessive replacements and thus simpler regex.
+This action can be useful for comments, descriptions or free text like data. It lets you mask such things as emails, usernames or logins with a specific pattern and so on. Because you can define a list of regex actions in a specific order, you can chain regex replacements to break down anonymization in smaller, successive replacements, resulting in simpler regex patterns.
 
 === KEEP
 
@@ -149,7 +149,7 @@ Keep the value, no anonymization done.
 
 *Parameters*: none
 
-Sample configuration :
+Sample configuration:
 [source,yaml]
 ----
 arch_flownode_instance:
@@ -164,7 +164,7 @@ Remove the whole data row if the column value matches the given regex pattern.
 
 In the example below, we remove all lines of `arch_contract_data` where column `name` has a value that match regex `PurchasedLicenseInput\.bypassSysDate` or `PurchasedLicenseInput\.caseCounterStartDate`
 
-Sample configuration :
+Sample configuration:
 [source,yaml]
 ----
 arch_contract_data:

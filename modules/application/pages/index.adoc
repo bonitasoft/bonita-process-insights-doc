@@ -41,6 +41,15 @@ You can either define a Business goal for a specific process either for any flow
 
 image::create-business-goal.png[Create business goal]
 
+[#generate-license]
+=== Generate a license to be able to export data from Bonita
+
+As described in the documentation about xref:cli:index.adoc[how to export data from Bonita], most CLI commands require a license to run.
+
+To generate and retrieve a license, connect to your Bonita Process Insights instance and accessing the "Generate license" feature from any page.
+
+image::generate-license.png[Generate license]
+
 == Glossary
 
 === Business Goals

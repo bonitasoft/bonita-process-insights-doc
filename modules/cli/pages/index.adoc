@@ -17,7 +17,7 @@ All configuration and execution instructions are described in the tool's *readme
 
 Most CLI commands require a license to run.
 
-You can retrieve a license by logging into your Bonita Process Insights instance and accessing the xref:application:license-generation.adoc["Generate license" feature].
+You can retrieve a license by logging into your Bonita Process Insights instance and accessing the xref:application:index.adoc#generate-license["Generate license" feature].
 
 Once you have the license, place the license file in the same directory as the CLI executable.
 

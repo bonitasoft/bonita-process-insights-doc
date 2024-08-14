@@ -1,0 +1,70 @@
+= Bonita Process Insights Application
+:description: Explain how to use and configure the CLI to export data from a Bonita database
+
+== Overview
+The Bonita Process Insights application allows you to manage your datasets from your Bonita usage.
+
+You can easily analyze all execution data of your processes to better understand your teams' activities.
+
+It is also possible to set time-based goals (Business Goals) to verify the achievement of your business objectives.
+
+== Prerequisites
+
+* Internet connexion
+
+* Any supported browser in latest version
+
+* At least one functional process diagram and a BDM defined in Bonita Studio (version 2021.2 and beyond)
+
+* A Bonita Process Insights account / license
+
+* Be able to run the export tool on your BPM database (for cloud customer you should ask to Bonita Cloud team)
+
+== Configuration
+
+image::home.png[home page]
+
+=== Manage applications
+
+You can add an application if it's the first time you access BPI application or if you want to add a new type of dataset.
+
+image::create-application.png[Craete application]
+
+=== Import data
+Once the export tool generated the zip file containing your dataset you can perform the import.
+
+image::import-data.png[Import Data]
+
+=== Define Business Goals
+
+You can either define a Business goal for a specific process either for any flownode you want.
+
+image::create-business-goal.png[Create business goal]
+
+[#generate-license]
+=== Generate a license to be able to export data from Bonita
+
+As described in the documentation about xref:cli:index.adoc[how to export data from Bonita], most CLI commands require a license to run.
+
+To generate and retrieve a license, connect to your Bonita Process Insights instance and accessing the "Generate license" feature from any page.
+
+image::generate-license.png[Generate license]
+
+== Glossary
+
+=== Business Goals
+Before exporting, you need to configure the connection to the Bonita Instance from which you want to export the data.
+
+=== Cases
+This is an instance of a process
+
+=== Flownode
+A Flow Node in BPMN is an element within a process that represents a point in the flow where something happens.
+It can be an activity that needs to be performed, a decision point, an event that occurs, or a gateway that dictates the flow's path based on certain conditions.
+Flow Nodes are interconnected by Sequence Flows, which determine the order in which activities are executed in the process.
+Type of flownodes:
+
+* **Events**
+* **Activities**
+* **Events Gateways**
+

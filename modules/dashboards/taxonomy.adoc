@@ -1,2 +1,5 @@
-* Dashboards
-** xref:index.adoc[Introduction]
+* xref:index.adoc[Dashboards]
+** xref:application-insights.adoc[Application Insights]
+** xref:process-user-insights.adoc[Process User Insights]
+** xref:process-overview.adoc[Process Overview]
+** xref:process-compare.adoc[Process Compare]

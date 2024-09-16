@@ -26,14 +26,20 @@ image::home.png[home page]
 
 === Manage applications
 
-You can add an application if it's the first time you access BPI application or if you want to add a new type of dataset.
+An _Application (BPI)_ mirror one of your Bonita (BPA) deployment. For exemple, if you have several BPA instances for one project like "my-hr-app-dev", "my-hr-app-uat" and "my-hr-app-prod", you may want to create 3 applications in BPI (with the same names for clarity).
 
-image::create-application.png[Craete application]
+Applications can alse be deleted in BPI. In that case all the previously related imported data will be deleted too. This means, all the application data used in dashboards, all related business goals and the dataset import history. The "delete application" button can be found on application card in the application list.
+
+image::create-application.png[Create application]
 
 === Import data
-Once the export tool generated the zip file containing your dataset you can perform the import.
+Once the export tool generated the zip file containing your dataset you can perform the import. 
+
+Navigate to the applications page on your BPI instances and hit the "import data" button of the target application card to access the upload form. Upload the generated zip file and wait for it to be processed and analysed. When done, you can now explore the data in your dashboards.
 
 image::import-data.png[Import Data]
+
+It is also possible to clean all previously imported data for a given application. You may need to do so if you forgot to anonymize the data or if some data should have been excluded from the import, etc.  Cleaning application data only delete the BPM data used by the dashboards, business goals and dataset import history are kept. The "clean data" button can be found on application card in the application list. 
 
 === Define Business Goals
 

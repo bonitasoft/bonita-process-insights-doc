@@ -26,20 +26,27 @@ image::home.png[home page]
 
 === Manage applications
 
-An _Application (BPI)_ mirror one of your Bonita (BPA) deployment. For exemple, if you have several BPA instances for one project like "my-hr-app-dev", "my-hr-app-uat" and "my-hr-app-prod", you may want to create 3 applications in BPI (with the same names for clarity).
+An _Application (BPI)_ reflects one of your Bonita (BPA) deployments.
+
+For example, if you have multiple BPA instances for a project like "my-hr-app-dev", "my-hr-app-uat", and "my-hr-app-prod", you can create 3 applications in BPI (using the same names for clarity).
 
 image::create-application.png[Create application]
 
-Applications can also be deleted in BPI. In that case, all the previously related imported data will be deleted too. This means, all the application data used in dashboards, all related business goals and the dataset import history. The "delete application" button can be found on application card in the application list.
+Applications can also be deleted in BPI.
+
+When you delete an application, all related imported data will be removed. This includes data used in dashboards, related business goals, and the dataset import history. The "delete application" button is available on the application card in the application list.
 
 === Import data
-Once the export tool generated the zip file containing your dataset you can perform the import. 
 
-Navigate to the applications page on your BPI instances and hit the "import data" button of the target application card to access the upload form. Upload the generated zip file and wait for it to be processed and analysed. When done, you can now explore the data in your dashboards.
+Once the export tool generates the zip file containing your dataset, you can import it.
+
+Go to the _Applications_ page in your BPI instance, click the "Import Data" button on the target application's card, and access the upload form. Upload the zip file and wait for it to be processed and analyzed. Once completed, you can explore the data in your dashboards.
 
 image::import-data.png[Import Data]
 
-It is also possible to clean all previously imported data for a given application. You may need to do so if you forgot to anonymize the data or if some data should have been excluded from the import, etc.  Cleaning application data only delete the BPM data used by the dashboards, business goals and dataset import history are preserved. The "clean data" button can be found on application card in the application list. 
+You can also clean all previously imported data for a specific application.
+
+This may be necessary if, for example, you forgot to anonymize the data or if certain data shouldn't have been included. Cleaning only deletes the BPM data used in dashboards; business goals and dataset import history remain. The "clean data" button is located on the application card in the application list.
 
 === Define Business Goals
 

@@ -25,7 +25,7 @@ The `arch_process_instance` table contains information related to process instan
 ** **Details**: This field contains the description of the process instance itself that is added by developers during the development phase. Although it might contain sensitive data (e.g., company names, departments, addresses), this is usually not the case.
 
 * **stringindex1, stringindex2, stringindex3, stringindex4, stringindex5**: 
-** **Default anonymization**: HASH
+** **Default anonymization**: `HASH`
 ** **Details**: These fields hold the search indexes that are defined at the development phase that can be used to search cases using the APIs and case list. These fields are usually filled with specific Groovy code, which may expose sensitive data. Therefore, they are hashed by default to maintain data security.
 
 ==== arch_flownode_instance

@@ -22,12 +22,14 @@ You can retrieve a license by logging into your Bonita Process Insights instance
 Once you have the license, place the license file in the same directory as the CLI executable.
 
 == Export data
+=== Pre-requisites
+The tool is currently optimized to export data from version 2021.2 (7.13.0) and beyond. While it may be working for older versions, you should contact Bonitasoft to ensure it.
 
 === Configuration
 
 Before exporting, you need to configure the connection to the Bonita Instance from which you want to export the data.
 
-Export tool can support two types of databases PostgreSQL and Oracle. The JDBC URL must be adapted according to the type of database you will use.
+Export tool can support two types of databases PostgreSQL and Oracle (SQLServer and MySQL are also available upon demand). The JDBC URL must be adapted according to the type of database you will use.
 
 * **Oracle**:
 

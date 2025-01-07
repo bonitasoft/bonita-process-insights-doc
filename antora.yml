@@ -14,3 +14,5 @@ nav:
   - modules/cli/taxonomy.adoc
   - modules/application/taxonomy.adoc
   - modules/dashboards/taxonomy.adoc
+  - modules/spo/taxonomy.adoc
+  

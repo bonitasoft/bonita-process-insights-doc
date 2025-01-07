@@ -32,7 +32,7 @@ Ensure emails in the distribution list are separated by commas. There is no limi
 
 When you import data into your application, the SPO will be available for generation:
 
-image:spo/import_page.png[import-page]
+image:spo/import-page.png[import-page]
 
 Ensure at least one email is configured in your xref:spo:index.adoc#requirements[application details].
 
@@ -41,7 +41,7 @@ Ensure at least one email is configured in your xref:spo:index.adoc#requirements
 
 Navigate to the application's card on the home page and click the “Generate Smart Process Overview” button to generate it:
 
-image:spo/card_spo.png[card_spo]
+image:spo/card-spo.png[card-spo]
 
 
 Ensure you’ve xref:application:index.adoc#_import_data[imported at least one dataset] and configured at least one email in the xref:spo:index.adoc#requirements[application details].

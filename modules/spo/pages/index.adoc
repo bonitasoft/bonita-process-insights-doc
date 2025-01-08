@@ -44,7 +44,7 @@ Navigate to the application's card on the home page and click the “Generate Sm
 image:card-spo.png[card-spo]
 
 
-Ensure you’ve xref:application:index.adoc[imported at least one dataset] and configured at least one email in the xref:spo:index.adoc#requirements[application details].
+Ensure you’ve xref:application:index.adoc[imported at least one dataset] and configured at least one email in the  <<requirements, application details>>.
 
 Once generated, the SPO will be sent to your email distribution list within a few moments.
 

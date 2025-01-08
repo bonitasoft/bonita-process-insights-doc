@@ -21,7 +21,7 @@ Additionally, you can generate the SPO on demand via your application card.
 
 * At least one email configured in your application’s email distribution list:
 
-image:spo/configure-email.gif[configure-email]
+image:configure-email.gif[configure-email]
 
 Ensure emails in the distribution list are separated by commas. There is no limit to the number of recipients.
 
@@ -32,7 +32,7 @@ Ensure emails in the distribution list are separated by commas. There is no limi
 
 When you import data into your application, the SPO will be available for generation:
 
-image:spo/import-page.png[import-page]
+image:import-page.png[import-page]
 
 Ensure at least one email is configured in your xref:spo:index.adoc#requirements[application details].
 
@@ -41,7 +41,7 @@ Ensure at least one email is configured in your xref:spo:index.adoc#requirements
 
 Navigate to the application's card on the home page and click the “Generate Smart Process Overview” button to generate it:
 
-image:spo/card-spo.png[card-spo]
+image:card-spo.png[card-spo]
 
 
 Ensure you’ve xref:application:index.adoc#_import_data[imported at least one dataset] and configured at least one email in the xref:spo:index.adoc#requirements[application details].

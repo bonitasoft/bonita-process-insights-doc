@@ -76,4 +76,4 @@ Smart Process Overview delivery may take a few hours. Check your spam folder or 
 
 === I have imported data while not having any email configured in my application, can I still generate a Smart Process Overview afterwards?
 
-Yes. Simply configure an email in your application, return to the home page and click the SPO star button on the application card.
+Yes. Simply configure an email in your application, return to the home page and click the "Generate Smart Process Overview" button on the application card.

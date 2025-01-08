@@ -34,7 +34,7 @@ When you import data into your application, the SPO will be available for genera
 
 image:import-page.png[import-page]
 
-Ensure at least one email is configured in your xref:spo:index.adoc#requirements[application details].
+Ensure at least one email is configured in your <<requirements, application details>>.
 
 [#on-demand]
 ==== 2. On-demand from the application’s card

@@ -53,7 +53,7 @@ Once generated, the SPO will be sent to your email distribution list within a fe
 
 === What AI model is used to generate the Smart Process Overview?
 
-The SPO is powered by OpenAI.
+The SPO is powered by https://openai.com/[OpenAI].
 
  
 === How is the Smart Process Overview computed?
